@@ -1,28 +1,16 @@
 import './App.css'
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CatalogPage from './pages/CatalogPage'
-import FavoritesPage from './pages/FavoritesPage'
-import { AppLayout } from './components/appLayout/AppLayout'
+
 import { Features } from './components/features/Features'
 import { Reviews } from './components/reviews/Reviews'
+import AppLayout from './components/appLayout/AppLayout'
+import FavoritesPage from './pages/FavoritesPage'
 
 function App() {
 	return (
 		<>
-			<header>
-				<ul>
-					<li>
-						<NavLink to='/'>Home</NavLink>
-					</li>
-					<li>
-						<NavLink to='/favorite'>Favorite</NavLink>
-					</li>
-					<li>
-						<NavLink to='/catalog'>Catalog</NavLink>
-					</li>
-				</ul>
-			</header>
 			<Routes>
 				<Route path='/' element={<AppLayout />}>
 					<Route index element={<HomePage />} />
