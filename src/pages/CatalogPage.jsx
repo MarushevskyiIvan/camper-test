@@ -1,11 +1,15 @@
-import { useEffect } from 'react'
-import {
-	useDispatch,
-	//  useSelector
-} from 'react-redux'
-// import { selectError, selectIsLoading } from '../redux/cars/selectors'
+import { useEffect, useState } from 'react'
 
-import { getAllCarsInformation } from '../redux/cars/operations'
+import {
+	campersSelector,
+	selectError,
+	selectIsLoading,
+} from '../redux/campers/selectors'
+
+import { getAllCarsInformation } from '../redux/campers/operations'
+import { useDispatch, useSelector } from 'react-redux'
+import { CampersList } from '../components/campersList/CampersList'
+import { ItemModal } from '../components/modal/Modal'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -22,9 +26,24 @@ const CatalogPage = () => {
 		dispatch(getAllCarsInformation())
 	}, [dispatch])
 
+	const [isModalOpen, setModal] = useState(false)
+
+	const campers = useSelector(campersSelector)
+	console.log(campers)
+
+	const toggleModal = () => {
+		setModal(prevState => !prevState)
+	}
+
 	return (
 		<div>
-			<h1>Cars bee beee dzhin dzhin </h1>
+			<CampersList />
+
+			<ItemModal
+				isOpen={isModalOpen}
+				isClose={toggleModal}
+				image={campers.gallery}
+			/>
 		</div>
 	)
 }

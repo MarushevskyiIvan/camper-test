@@ -1,11 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+axios.defaults.baseURL = 'https://65feab57b2a18489b38664b8.mockapi.io/campers'
+
 export const getAllCarsInformation = createAsyncThunk(
-	'cars/getAll',
+	'campers/getAll',
 	async (_, thunkAPI) => {
 		try {
-			const { data } = await axios.get('/cars')
+			const { data } = await axios.get('/campers')
+
 			return data
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message)
@@ -13,14 +16,11 @@ export const getAllCarsInformation = createAsyncThunk(
 	}
 )
 
-export const addOneCar = createAsyncThunk(
-	'cars/addOneCar',
-	async ({ name, number }, thunkAPI) => {
+export const getOneCamper = createAsyncThunk(
+	'campers/getOne',
+	async (id, thunkAPI) => {
 		try {
-			const { data } = await axios.post('/cars', {
-				name: name,
-				number: number,
-			})
+			const { data } = await axios.get(`/campers/${id}`)
 			return data
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message)

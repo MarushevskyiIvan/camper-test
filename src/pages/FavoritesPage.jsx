@@ -1,7 +1,16 @@
+import { useState } from 'react'
+import { ItemModal } from '../components/modal/Modal'
+import { useSelector } from 'react-redux'
+import { campersSelector } from '../redux/campers/selectors'
+
 const FavoritesPage = () => {
 	return (
 		<div>
-			<h1>Favorite cars</h1>
+			{/* <ItemModal
+				isOpen={isModalOpen}
+				isClose={toggleModal}
+				image={campers.img}
+			/> */}
 		</div>
 	)
 }

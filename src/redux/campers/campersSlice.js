@@ -1,22 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { handleFulfilled, handlePending, handleRejected } from './handlers'
+import { handleFetchFulfilled, handlePending, handleRejected } from './handlers'
 import { getAllCarsInformation } from './operations'
 
 const initialState = {
-	cars: [],
+	campers: [],
 	isLoading: false,
 	error: null,
 }
 
-const carSlice = createSlice({
-	name: 'cars',
+const camperSlice = createSlice({
+	name: 'campers',
 	initialState: initialState,
 	extraReducers: builder => {
 		builder
+			.addCase(getAllCarsInformation.fulfilled, handleFetchFulfilled)
 			.addCase(getAllCarsInformation.pending, handlePending)
-			.addCase(getAllCarsInformation.fulfilled, handleFulfilled)
 			.addCase(getAllCarsInformation.rejected, handleRejected)
 	},
 })
 
-export const carReducer = carSlice.reducer
+export const camperReducer = camperSlice.reducer
