@@ -3,7 +3,6 @@ import { campersSelector } from '../../redux/campers/selectors'
 import { ShowMoreButton } from '../showMoreBtn/ShowMoreButton'
 // import { CamperDetails } from '../camperDetails/CamperDetails'
 import { nanoid } from 'nanoid'
-import { ItemModal } from '../modal/Modal'
 
 const defaultImg =
 	'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=342x342'
@@ -16,7 +15,7 @@ export const CampersList = () => {
 			<ul>
 				{campers.map(
 					({
-						_id,
+						id,
 						description,
 						gallery,
 						location,
@@ -29,16 +28,22 @@ export const CampersList = () => {
 						const entries = Object.entries(details)
 
 						return (
-							<li key={_id}>
+							<li key={id}>
 								<h2>{name}</h2>
-								<img src={gallery ? gallery[0] : defaultImg} />
+								<img
+									src={gallery ? gallery[0] : defaultImg}
+									style={{
+										width: 290,
+										height: 310,
+									}}
+								/>
 								<p>{price}</p>
 								<span></span>
 								<svg></svg>
 								<svg></svg>
-								<p>
+								<span>
 									{rating}({reviews.length} Reviews)
-								</p>
+								</span>
 								<p>{location}</p>
 								<p>{description}</p>
 								<ul>
@@ -47,7 +52,7 @@ export const CampersList = () => {
 									</li>
 								</ul>
 								{/* <CamperDetails /> */}
-								<ShowMoreButton />
+								<ShowMoreButton id={id} />
 							</li>
 						)
 					}

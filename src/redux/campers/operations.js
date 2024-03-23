@@ -16,11 +16,12 @@ export const getAllCarsInformation = createAsyncThunk(
 	}
 )
 
-export const getOneCamper = createAsyncThunk(
-	'campers/getOne',
+export const getOneCar = createAsyncThunk(
+	'cars/getOne',
 	async (id, thunkAPI) => {
 		try {
 			const { data } = await axios.get(`/campers/${id}`)
+
 			return data
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message)

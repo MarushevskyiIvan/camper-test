@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { camperReducer } from './campers/campersSlice'
 import { filterReducer } from './campers/filterSlice'
+import { campersReducer } from './campers/campersSlice'
+import { carReducer } from './campers/carSlice'
 
 // import { authReducer } from './auth/slice'
 // import persistReducer from 'redux-persist/es/persistReducer'
@@ -23,7 +24,8 @@ import { filterReducer } from './campers/filterSlice'
 
 export const store = configureStore({
 	reducer: {
-		campers: camperReducer,
+		campers: campersReducer,
+		car: carReducer,
 		filter: filterReducer,
 		// auth: persistReducer(authPersistConfig, authReducer),
 	},

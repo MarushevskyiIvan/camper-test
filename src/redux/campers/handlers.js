@@ -9,7 +9,12 @@ export const handleFulfilled = state => {
 	state.isLoading = false
 	state.error = null
 }
-export const handleFetchFulfilled = (state, action) => {
+export const handleFetchCampersFulfilled = (state, action) => {
 	handleFulfilled(state)
 	state.campers = action.payload
+}
+
+export const handleFetchCarFulfilled = (state, action) => {
+	handleFulfilled(state)
+	state.car = action.payload
 }

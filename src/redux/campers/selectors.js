@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit'
 
 export const campersSelector = state => state.campers.campers
+export const carSelector = state => state.car.car
 export const filterSelector = state => (state = state.filter.filter)
 
 export const selectIsLoading = state => state.campers.isLoading

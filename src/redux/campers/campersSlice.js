@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { handleFetchFulfilled, handlePending, handleRejected } from './handlers'
+import {
+	handleFetchCampersFulfilled,
+	handlePending,
+	handleRejected,
+} from './handlers'
 import { getAllCarsInformation } from './operations'
 
 const initialState = {
@@ -8,15 +12,15 @@ const initialState = {
 	error: null,
 }
 
-const camperSlice = createSlice({
+const campersSlice = createSlice({
 	name: 'campers',
 	initialState: initialState,
 	extraReducers: builder => {
 		builder
-			.addCase(getAllCarsInformation.fulfilled, handleFetchFulfilled)
+			.addCase(getAllCarsInformation.fulfilled, handleFetchCampersFulfilled)
 			.addCase(getAllCarsInformation.pending, handlePending)
 			.addCase(getAllCarsInformation.rejected, handleRejected)
 	},
 })
 
-export const camperReducer = camperSlice.reducer
+export const campersReducer = campersSlice.reducer
