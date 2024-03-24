@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Input, InputDiv, InputWrapper, Label } from './locationForm.styled'
 
 export const LocationForm = () => {
 	const [name, setName] = useState('')
@@ -19,20 +20,18 @@ export const LocationForm = () => {
 
 	return (
 		<>
-			<div>
-				<form onSubmit={formSubmit}>
-					<label>
-						<svg>?</svg>
-						Location
-						<input
-							type='text'
-							placeholder='City'
-							name='name'
-							onChange={evt => handleChange(evt.target.value)}
-						/>
-					</label>
-				</form>
-			</div>
+			<InputWrapper>
+				<Label>Location</Label>
+				{/* <svg>
+					<use></use>
+				</svg> */}
+				<Input
+					type='text'
+					placeholder='City'
+					name='name'
+					onChange={evt => handleChange(evt.target.value)}
+				/>
+			</InputWrapper>
 		</>
 	)
 }

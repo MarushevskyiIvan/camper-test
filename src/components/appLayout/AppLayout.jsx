@@ -1,31 +1,34 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 import { Suspense } from 'react'
-// import { GlobalStyle } from 'components/GlobalStyle'
+
+import { Header, HeaderLink, HeaderUl, MainContainer } from './AppLayoutStyled'
+import { GlobalStyles } from '../GlobalStyles'
 
 const AppLayout = () => {
 	return (
 		<>
-			<header>
-				<ul>
+			<Header>
+				<HeaderUl>
 					<li>
-						<NavLink to='/'>Home</NavLink>
+						<HeaderLink to='/'>Home</HeaderLink>
 					</li>
 					<li>
-						<NavLink to='/favorites'>Favorites</NavLink>
+						<HeaderLink to='/catalog'>Catalog</HeaderLink>
 					</li>
 					<li>
-						<NavLink to='/catalog'>Catalog</NavLink>
+						<HeaderLink to='/favorites'>Favorites</HeaderLink>
 					</li>
-				</ul>
-			</header>
+				</HeaderUl>
+			</Header>
 			<main>
-				<Suspense>
-					<Outlet />
-				</Suspense>
+				<MainContainer>
+					<Suspense fallback={<div>Loading...</div>}>
+						<Outlet />
+					</Suspense>
+				</MainContainer>
 			</main>
-
-			{/* <GlobalStyle /> */}
+			<GlobalStyles />
 		</>
 	)
 }

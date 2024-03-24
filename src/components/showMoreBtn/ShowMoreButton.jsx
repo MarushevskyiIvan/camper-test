@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Btn, BtnWrap } from './ShowMoreButton.styled'
+import { Btn } from './ShowMoreButton.styled'
 import { ItemModal } from '../modal/ItemModal.jsx'
 import { useDispatch } from 'react-redux'
 import { getOneCar } from '../../redux/campers/operations.js'
@@ -15,9 +15,8 @@ export const ShowMoreButton = ({ id }) => {
 
 	return (
 		<>
-			<BtnWrap>
-				<Btn onClick={toggleModal}>Show more</Btn>
-			</BtnWrap>
+			<Btn onClick={toggleModal}>Show more</Btn>
+
 			<ItemModal isOpen={isModalOpen} isClose={toggleModal} />
 		</>
 	)

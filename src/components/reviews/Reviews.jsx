@@ -2,7 +2,6 @@ import { nanoid } from 'nanoid'
 
 export const Reviews = ({ car }) => {
 	const { reviews } = car
-	console.log('reviews', reviews)
 	return (
 		<ul>
 			{reviews &&

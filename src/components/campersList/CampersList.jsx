@@ -2,12 +2,26 @@ import { useSelector } from 'react-redux'
 import { campersSelector } from '../../redux/campers/selectors'
 import { ShowMoreButton } from '../showMoreBtn/ShowMoreButton'
 import { nanoid } from 'nanoid'
+import {
+	DescripText,
+	DescriptionWrap,
+	Img,
+	Li,
+	Name,
+	OptionsLi,
+	OptionsUl,
+	Price,
+	RatingLocation,
+	TitleWrap,
+} from './CampersListStyled'
 
 const defaultImg =
 	'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=342x342'
 
 export const CampersList = () => {
 	const campers = useSelector(campersSelector)
+
+	const euroSymbol = '\u20AC'
 
 	return (
 		campers && (
@@ -27,31 +41,48 @@ export const CampersList = () => {
 						const entries = Object.entries(details)
 
 						return (
-							<li key={id}>
-								<h2>{name}</h2>
-								<img
+							<Li key={id}>
+								<Img
 									src={gallery ? gallery[0] : defaultImg}
 									style={{
 										width: 290,
 										height: 310,
 									}}
 								/>
-								<p>{price}</p>
-								<span></span>
-								<svg></svg>
-								<svg></svg>
-								<span>
-									{rating}({reviews.length} Reviews)
-								</span>
-								<p>{location}</p>
-								<p>{description}</p>
-								<ul>
-									<li key={nanoid()}>
-										<svg></svg> {entries}
-									</li>
-								</ul>
-								<ShowMoreButton id={id} />
-							</li>
+								<DescriptionWrap>
+									<TitleWrap>
+										<Name>{name}</Name>
+										<Price>
+											{euroSymbol}
+											{price}
+										</Price>
+
+										{/* <button></button> */}
+									</TitleWrap>
+									<RatingLocation>
+										<span>
+											{/* <svg></svg> */}
+											{rating}({reviews.length} Reviews)
+										</span>
+										<p>{location}</p>
+									</RatingLocation>
+
+									<DescripText>{description}</DescripText>
+									<OptionsUl>
+										{entries &&
+											entries.map(([key, value]) => {
+												return (
+													<OptionsLi key={nanoid()}>
+														{/* <svg></svg> */}
+														{value >= 2 && <span>{value} </span>}
+														<span>{key}</span>
+													</OptionsLi>
+												)
+											})}
+									</OptionsUl>
+									<ShowMoreButton id={id} />
+								</DescriptionWrap>
+							</Li>
 						)
 					}
 				)}

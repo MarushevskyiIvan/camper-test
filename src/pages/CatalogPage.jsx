@@ -8,6 +8,7 @@ import { getAllCarsInformation } from '../redux/campers/operations'
 import { useDispatch } from 'react-redux'
 import { CampersList } from '../components/campersList/CampersList'
 import { LocationForm } from '../components/locationsForm/LocationForm'
+import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -25,10 +26,11 @@ const CatalogPage = () => {
 	}, [dispatch])
 
 	return (
-		<div>
+		<>
 			<LocationForm />
+			<CamperListFilter />
 			<CampersList />
-		</div>
+		</>
 	)
 }
 
