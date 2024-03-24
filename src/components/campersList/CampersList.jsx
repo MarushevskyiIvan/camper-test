@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import { campersSelector } from '../../redux/campers/selectors'
 import { ShowMoreButton } from '../showMoreBtn/ShowMoreButton'
-// import { CamperDetails } from '../camperDetails/CamperDetails'
 import { nanoid } from 'nanoid'
 
 const defaultImg =
@@ -51,7 +50,6 @@ export const CampersList = () => {
 										<svg></svg> {entries}
 									</li>
 								</ul>
-								{/* <CamperDetails /> */}
 								<ShowMoreButton id={id} />
 							</li>
 						)

@@ -1,44 +1,33 @@
-import { useSelector } from 'react-redux'
-import { campersSelector } from '../../redux/campers/selectors'
-import { nanoid } from 'nanoid'
+const defaultImg =
+	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBFjq4Ist4_3GEX01sQ9Kg7Ucxkmg8FbMP7w&usqp=CAU'
 
-export const CamperDetails = () => {
-	const campers = useSelector(campersSelector)
-	// console.log('campers', campers)
+const imgStyle = { width: 290, height: 310 }
+
+export const CamperDetails = ({ car }) => {
+	const { name, gallery, price, rating, reviews, location, description } = car
+
 	return (
-		campers && (
-			<ul>
-				{campers.map(({ details }) => {
-					// const keys = Object.keys(details)
-					// const values = Object.values(details)
-					const entries = Object.entries(details)
-					console.log('entries', entries)
+		car && (
+			<>
+				<h2>{name}</h2>
+				{gallery && gallery.length > 0 && (
+					<>
+						<img src={gallery[0] || defaultImg} style={imgStyle} />
+						<img src={gallery[1] || defaultImg} style={imgStyle} />
+						<img src={gallery[2] || defaultImg} style={imgStyle} />
+					</>
+				)}
 
-					return (
-						<>
-							<li key={nanoid()}> {entries} </li>
-
-							{/* <li key={nanoid()}>{TV} TV</li>
-							<li key={nanoid()}>{airConditioner} airConditioner</li>
-							<li key={nanoid()}>{bathroom} bathroom</li>
-							<li key={nanoid()}>{beds} beds</li>
-							<li key={nanoid()}>{freezer} freezer</li>
-							<li key={nanoid()}>{gas} gas</li>
-							<li key={nanoid()}>{hob} hob</li>
-							<li key={nanoid()}>{kitchen} kitchen</li>
-							<li key={nanoid()}>{microwave} microwave</li>
-							<li key={nanoid()}>{radio} radio</li>
-							<li key={nanoid()}>{shower} shower</li>
-							<li key={nanoid()}>{toilet} toilet</li>
-							<li key={nanoid()}>{water} water</li>
-							<li key={nanoid()}>{transmission} transmission</li>
-							<li key={nanoid()}>{adults} adults</li>
-							<li key={nanoid()}>{children} children</li>
-							<li key={nanoid()}>{engine} engine</li> */}
-						</>
-					)
-				})}
-			</ul>
+				<p>{price}</p>
+				<span></span>
+				<svg></svg>
+				<svg></svg>
+				<span>
+					{rating} ({reviews?.length} Reviews)
+				</span>
+				{/* <p>{location}</p> */}
+				<p>{description}</p>
+			</>
 		)
 	)
 }

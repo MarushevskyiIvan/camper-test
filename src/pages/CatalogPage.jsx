@@ -7,6 +7,7 @@ import // selectError,
 import { getAllCarsInformation } from '../redux/campers/operations'
 import { useDispatch } from 'react-redux'
 import { CampersList } from '../components/campersList/CampersList'
+import { LocationForm } from '../components/locationsForm/LocationForm'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -25,6 +26,7 @@ const CatalogPage = () => {
 
 	return (
 		<div>
+			<LocationForm />
 			<CampersList />
 		</div>
 	)

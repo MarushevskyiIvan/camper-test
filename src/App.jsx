@@ -7,6 +7,8 @@ import { Features } from './components/features/Features'
 import { Reviews } from './components/reviews/Reviews'
 import AppLayout from './components/appLayout/AppLayout'
 import FavoritesPage from './pages/FavoritesPage'
+import { ItemModal } from './components/modal/ItemModal'
+// import { ItemModalPage } from './pages/ItemModalPage'
 
 function App() {
 	return (
@@ -16,10 +18,12 @@ function App() {
 					<Route index element={<HomePage />} />
 					<Route path='/catalog' element={<CatalogPage />} />
 
-					<Route path='/favorites' element={<FavoritesPage />}>
+					<Route path='/modal' element={<ItemModal />}>
 						<Route path='features' element={<Features />} />
 						<Route path='reviews' element={<Reviews />} />
 					</Route>
+
+					<Route path='/favorites' element={<FavoritesPage />} />
 				</Route>
 			</Routes>
 		</>
