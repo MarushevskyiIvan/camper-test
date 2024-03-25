@@ -16,10 +16,11 @@ export const Btn = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	&&:hover {
+		background-color: #d84343;
+	}
+	&&:focus {
+		background-color: #d84343;
+	}
 `
-// export const BtnWrap = styled.div`
-// 	display: flex;
-// 	justify-content: center;
-// 	margin-top: 24px;
-// 	margin-bottom: 24px;
-// `

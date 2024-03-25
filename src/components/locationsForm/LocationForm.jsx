@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Input, InputDiv, InputWrapper, Label } from './locationForm.styled'
+import { Input, InputWrapper, Svg, LocalForm } from './LocationForm.styled'
+import sprite from '../../assets/sprite.svg'
 
 export const LocationForm = () => {
 	const [name, setName] = useState('')
@@ -20,18 +21,20 @@ export const LocationForm = () => {
 
 	return (
 		<>
-			<InputWrapper>
-				<Label>Location</Label>
-				{/* <svg>
-					<use></use>
-				</svg> */}
-				<Input
-					type='text'
-					placeholder='City'
-					name='name'
-					onChange={evt => handleChange(evt.target.value)}
-				/>
-			</InputWrapper>
+			<LocalForm>
+				<label>Location</label>
+				<InputWrapper>
+					<Svg>
+						<use href={sprite + '#icon-location'} />
+					</Svg>
+					<Input
+						type='text'
+						placeholder='City'
+						name='name'
+						onChange={evt => handleChange(evt.target.value)}
+					/>
+				</InputWrapper>
+			</LocalForm>
 		</>
 	)
 }

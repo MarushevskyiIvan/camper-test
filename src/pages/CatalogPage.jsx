@@ -5,10 +5,11 @@ import // selectError,
 '../redux/campers/selectors'
 
 import { getAllCarsInformation } from '../redux/campers/operations'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CampersList } from '../components/campersList/CampersList'
 import { LocationForm } from '../components/locationsForm/LocationForm'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
+import { campersSelector } from '../redux/campers/selectors'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -24,12 +25,16 @@ const CatalogPage = () => {
 	useEffect(() => {
 		dispatch(getAllCarsInformation())
 	}, [dispatch])
+	const campers = useSelector(campersSelector)
 
 	return (
 		<>
-			<LocationForm />
-			<CamperListFilter />
-			<CampersList />
+			<div>
+				<LocationForm />
+				<CamperListFilter />
+			</div>
+
+			<CampersList campers={campers} />
 		</>
 	)
 }

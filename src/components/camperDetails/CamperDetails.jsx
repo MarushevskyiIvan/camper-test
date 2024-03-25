@@ -1,33 +1,71 @@
+import {} from './CamperDetails'
+import sprite from '../../assets/sprite.svg'
+import {
+	DescripText,
+	Img,
+	ImgWrap,
+	ModalWrap,
+	Name,
+	Price,
+	PriceWrap,
+	RatingLocation,
+	RatingLocationWrap,
+	Span,
+	SvgClose,
+	SvgLocation,
+	SvgStar,
+} from './CamperDetailsStyled'
+
 const defaultImg =
 	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBFjq4Ist4_3GEX01sQ9Kg7Ucxkmg8FbMP7w&usqp=CAU'
 
-const imgStyle = { width: 290, height: 310 }
-
-export const CamperDetails = ({ car }) => {
-	const { name, gallery, price, rating, reviews, location, description } = car
+export const CamperDetails = ({ camper }) => {
+	const { name, gallery, price, rating, reviews, location, description } =
+		camper
 
 	return (
-		car && (
-			<>
-				<h2>{name}</h2>
+		camper && (
+			<ModalWrap>
+				<Name>{name}</Name>
+
+				<RatingLocation>
+					<RatingLocationWrap>
+						<Span>
+							<SvgStar>
+								<use href={sprite + '#icon-star'} />
+							</SvgStar>
+							<p>
+								{rating}({reviews.length} Reviews)
+							</p>
+						</Span>
+					</RatingLocationWrap>
+
+					<RatingLocationWrap>
+						<SvgLocation>
+							<use href={sprite + '#icon-location'} />
+						</SvgLocation>
+						<p>{location}</p>
+					</RatingLocationWrap>
+				</RatingLocation>
+				<PriceWrap>
+					<Price>
+						{'\u20AC'}
+						{price}
+					</Price>
+					<SvgClose>
+						<use href={sprite + '#icon-close'} />
+					</SvgClose>
+				</PriceWrap>
 				{gallery && gallery.length > 0 && (
-					<>
-						<img src={gallery[0] || defaultImg} style={imgStyle} />
-						<img src={gallery[1] || defaultImg} style={imgStyle} />
-						<img src={gallery[2] || defaultImg} style={imgStyle} />
-					</>
+					<ImgWrap>
+						<Img src={gallery[0] || defaultImg} />
+						<Img src={gallery[1] || defaultImg} />
+						<Img src={gallery[2] || defaultImg} />
+					</ImgWrap>
 				)}
 
-				<p>{price}</p>
-				<span></span>
-				<svg></svg>
-				<svg></svg>
-				<span>
-					{rating} ({reviews?.length} Reviews)
-				</span>
-				{/* <p>{location}</p> */}
-				<p>{description}</p>
-			</>
+				<DescripText>{description}</DescripText>
+			</ModalWrap>
 		)
 	)
 }
