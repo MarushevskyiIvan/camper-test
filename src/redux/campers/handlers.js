@@ -11,7 +11,8 @@ export const handleFulfilled = state => {
 }
 export const handleFetchCampersFulfilled = (state, action) => {
 	handleFulfilled(state)
-	state.campers = action.payload
+
+	state.campers = [...state.campers, ...action.payload]
 }
 
 export const handleFetchCarFulfilled = (state, action) => {

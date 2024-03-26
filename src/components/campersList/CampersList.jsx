@@ -1,25 +1,36 @@
 // import { useSelector } from 'react-redux'
 // import { campersSelector } from '../../redux/campers/selectors'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CamperItem } from '../camperItem/CamperItem'
 import { LoadMoreBtn } from '../loadMoreBtn/LoadMoreBtn'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllCarsInformation } from '../../redux/campers/operations'
+import { campersSelector } from '../../redux/campers/selectors'
 
-export const CampersList = ({ campers }) => {
-	const [paginationCampers, setPaginationCampers] = useState(4)
+export const CampersList = () => {
+	const [page, setPage] = useState(1)
+	const [limit, setLimit] = useState(4)
+	const dispatch = useDispatch()
+	const campers = useSelector(campersSelector)
+	console.log('campers', campers)
 
-	const sliceCampers = campers.slice(0, paginationCampers)
+	useEffect(() => {
+		dispatch(getAllCarsInformation({ page, limit }))
+	}, [dispatch, page, limit])
 
 	const handlePagination = () => {
-		setPaginationCampers(paginationCampers + 4)
+		setPage(prevPage => prevPage + 1)
+		// setLimit(prevLimit => prevLimit + 4)
 	}
+
 	return (
 		<>
 			<ul>
-				<CamperItem campers={sliceCampers} />
+				<CamperItem campers={campers} />
 				<li>
-					{paginationCampers < campers.length && (
-						<LoadMoreBtn addCampers={handlePagination} />
-					)}
+					{/* {paginationCampers < campers.length && ( */}
+					<LoadMoreBtn addCampers={handlePagination} />
+					{/* )} */}
 				</li>
 			</ul>
 		</>

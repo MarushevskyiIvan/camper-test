@@ -1,15 +1,15 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 import // selectError,
 // selectIsLoading,
 '../redux/campers/selectors'
 
-import { getAllCarsInformation } from '../redux/campers/operations'
-import { useDispatch, useSelector } from 'react-redux'
+// import { getAllCarsInformation } from '../redux/campers/operations'
+// import { useDispatch, useSelector } from 'react-redux'
 import { CampersList } from '../components/campersList/CampersList'
 import { LocationForm } from '../components/locationsForm/LocationForm'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
-import { campersSelector } from '../redux/campers/selectors'
+// import { campersSelector } from '../redux/campers/selectors'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -18,14 +18,14 @@ import { campersSelector } from '../redux/campers/selectors'
 // import { ContactsTitle, TextError, Wrapper } from '../components/App.styled.js'
 
 const CatalogPage = () => {
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 	// const isLoading = useSelector(selectIsLoading)
 	// const error = useSelector(selectError)
 
-	useEffect(() => {
-		dispatch(getAllCarsInformation())
-	}, [dispatch])
-	const campers = useSelector(campersSelector)
+	// useEffect(() => {
+	// 	dispatch(getAllCarsInformation())
+	// }, [dispatch])
+	// const campers = useSelector(campersSelector)
 
 	return (
 		<>
@@ -34,7 +34,7 @@ const CatalogPage = () => {
 				<CamperListFilter />
 			</div>
 
-			<CampersList campers={campers} />
+			<CampersList />
 		</>
 	)
 }
