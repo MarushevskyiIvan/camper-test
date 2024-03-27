@@ -7,11 +7,7 @@ export const getAllCarsInformation = createAsyncThunk(
 	'campers/getAll',
 	async ({ page = 1, limit = 4 }, thunkAPI) => {
 		try {
-			console.log('page', page)
-			console.log('limit', limit)
-
 			const { data } = await axios.get(`/campers?page=${page}&limit=${limit}`)
-			console.log('data', data)
 
 			return data
 		} catch (error) {

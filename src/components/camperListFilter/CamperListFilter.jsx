@@ -1,12 +1,4 @@
-import {
-	DivWrap,
-	Input,
-	Label,
-	LabelType,
-	P,
-	Svg,
-	Title,
-} from './CamperListFilterStyled'
+import { DivWrap, Input, Label, P, Svg, Title } from './CamperListFilterStyled'
 import sprite from '../../assets/sprite.svg'
 
 export const CamperListFilter = () => {
@@ -52,7 +44,7 @@ export const CamperListFilter = () => {
 				</Label>
 			</DivWrap>
 
-			<p>Vehicle type</p>
+			<Title>Vehicle type</Title>
 			<DivWrap>
 				<Label>
 					<Input type='radio' name='Van' value='Van' />
@@ -61,10 +53,21 @@ export const CamperListFilter = () => {
 					</Svg>
 					<span>Van</span>
 				</Label>
-				<Label>
+				<Label
+					style={{
+						position: 'relative',
+						justifyContent: 'flex-end',
+						padding: '9px',
+					}}
+				>
 					<Input type='radio' name='FullyIntegrated' value='FullyIntegrated' />
 
-					<Svg>
+					<Svg
+						style={{
+							position: 'absolute',
+							top: '9px',
+						}}
+					>
 						<use href={sprite + '#icon-alcove'} />
 					</Svg>
 					<span>Fully Integrated</span>

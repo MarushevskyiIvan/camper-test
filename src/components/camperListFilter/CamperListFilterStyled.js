@@ -4,7 +4,18 @@ export const P = styled.p`
 	margin-bottom: 14px;
 `
 export const Title = styled.h3`
-	margin-bottom: 24px;
+	margin-bottom: 48px;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -24px;
+		width: 100%;
+		height: 1px;
+		background-color: rgba(16, 24, 40, 0.1);
+	}
 `
 
 export const Svg = styled.svg`
@@ -51,7 +62,7 @@ export const Input = styled.input`
 export const DivWrap = styled.div`
 	display: flex;
 	width: 360px;
-
+	margin-bottom: 32px;
 	flex-wrap: wrap;
 	gap: 10px;
 `

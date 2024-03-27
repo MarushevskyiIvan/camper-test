@@ -9,7 +9,6 @@ import // selectError,
 import { CampersList } from '../components/campersList/CampersList'
 import { LocationForm } from '../components/locationsForm/LocationForm'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
-// import { campersSelector } from '../redux/campers/selectors'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -29,9 +28,11 @@ const CatalogPage = () => {
 
 	return (
 		<>
-			<div>
-				<LocationForm />
-				<CamperListFilter />
+			<div style={{ height: '637px', width: '360px' }}>
+				<div style={{ position: 'fixed' }}>
+					<LocationForm />
+					<CamperListFilter />
+				</div>
 			</div>
 
 			<CampersList />
