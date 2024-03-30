@@ -3,6 +3,7 @@ import { createSelector } from '@reduxjs/toolkit'
 export const campersSelector = state => state.campers.campers
 export const carSelector = state => state.car.car
 export const filterSelector = state => (state = state.filter.filter)
+export const favoritesSelector = state => state.favorites
 
 export const selectIsLoading = state => state.campers.isLoading
 export const selectError = state => state.campers.error

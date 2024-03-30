@@ -14,11 +14,15 @@ import {
 	RatingLocation,
 	RatingLocationWrap,
 	Span,
+	SvgFavoriteHeart,
 	SvgHeart,
 	SvgLocation,
 	SvgStar,
 	TitleWrap,
 } from './CamperItemstyled'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addFavorites, deleteFavorite } from '../../redux/campers/favoriteSlice'
 
 const defaultImg =
 	'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=342x342'
@@ -43,6 +47,28 @@ export const CamperItem = ({ campers }) => {
 						transmission,
 					}) => {
 						const { airConditioner, kitchen, beds } = details
+						const [favorite, setFavorite] = useState(false)
+						const dispatch = useDispatch()
+
+						const favoriteHandler = () => {
+							setFavorite(!favorite)
+							if (!favorite) {
+								dispatch(addFavorites(id))
+							}
+							if (favorite) {
+								dispatch(deleteFavorite(id))
+							}
+						}
+
+						// useEffect(() => {
+						// 	if (!favorite) {
+						// 		dispatch(favorites(deleteFavorite(id)))
+						// 		// dispatch(favorites(favorites(id)))
+						// 	} else {
+						// 		dispatch(favorites(favorites(id)))
+						// 	}
+						// }, [favorite])
+
 						return (
 							<Li key={id}>
 								<Img src={gallery ? gallery[0] : defaultImg} />
@@ -53,11 +79,17 @@ export const CamperItem = ({ campers }) => {
 										<PriceWrap>
 											<Price>
 												{'\u20AC'}
-												{price}
+												{price.toFixed(2)}
 											</Price>
-											<SvgHeart>
-												<use href={sprite + '#icon-heart-null'} />
-											</SvgHeart>
+											{favorite ? (
+												<SvgFavoriteHeart onClick={favoriteHandler}>
+													<use href={sprite + '#icon-heart-null'} />
+												</SvgFavoriteHeart>
+											) : (
+												<SvgHeart onClick={favoriteHandler}>
+													<use href={sprite + '#icon-heart-null'} />
+												</SvgHeart>
+											)}
 										</PriceWrap>
 
 										{/* <button></button> */}

@@ -5,12 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllCarsInformation } from '../../redux/campers/operations'
 import { campersSelector } from '../../redux/campers/selectors'
 
-export const CampersList = () => {
+export const CampersList = ({ campers }) => {
 	const [page, setPage] = useState(1)
 	const [limit, setLimit] = useState(4)
 
 	const dispatch = useDispatch()
-	const campers = useSelector(campersSelector)
 
 	useEffect(() => {
 		dispatch(getAllCarsInformation({ page, limit }))

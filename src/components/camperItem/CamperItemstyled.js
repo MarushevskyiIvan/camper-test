@@ -51,6 +51,12 @@ export const SvgHeart = styled.svg`
 	fill: transparent;
 	stroke: #101828;
 `
+export const SvgFavoriteHeart = styled.svg`
+	height: 24px;
+	width: 24px;
+	fill: #e44848;
+	stroke: #e44848;
+`
 
 export const TitleWrap = styled.div`
 	display: flex;
