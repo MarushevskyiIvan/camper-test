@@ -3,7 +3,6 @@ import { CamperItem } from '../camperItem/CamperItem'
 import { LoadMoreBtn } from '../loadMoreBtn/LoadMoreBtn'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllCarsInformation } from '../../redux/campers/operations'
-import { campersSelector } from '../../redux/campers/selectors'
 
 export const CampersList = ({ campers }) => {
 	const [page, setPage] = useState(1)

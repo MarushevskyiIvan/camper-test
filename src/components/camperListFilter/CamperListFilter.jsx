@@ -1,4 +1,12 @@
-import { DivWrap, Input, Label, P, Svg, Title } from './CamperListFilterStyled'
+import {
+	DivWrap,
+	FilterBtn,
+	Input,
+	Label,
+	P,
+	Svg,
+	Title,
+} from './CamperListFilterStyled'
 import sprite from '../../assets/sprite.svg'
 
 export const CamperListFilter = () => {
@@ -80,6 +88,7 @@ export const CamperListFilter = () => {
 					<span>Alcove</span>
 				</Label>
 			</DivWrap>
+			<FilterBtn>Search</FilterBtn>
 		</form>
 	)
 }

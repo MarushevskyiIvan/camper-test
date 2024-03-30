@@ -6,13 +6,11 @@ import { campersSelector, favoritesSelector } from '../redux/campers/selectors'
 
 const FavoritesPage = () => {
 	const campers = useSelector(campersSelector)
+	const favoritesId = useSelector(favoritesSelector)
 
-	const { favorites } = useSelector(favoritesSelector)
-	console.log('favorites', favorites)
-
-	const as = campers.filter(({ id }) => favorites.includes(id))
-
-	console.log('as', as)
+	const favorites = campers.filter(({ id }) =>
+		favoritesId.favorites.includes(id)
+	)
 
 	return (
 		<>
@@ -22,8 +20,11 @@ const FavoritesPage = () => {
 					<CamperListFilter />
 				</div>
 			</div>
-
-			<CampersList campers={as} />
+			{favorites ? (
+				<CampersList campers={favorites} />
+			) : (
+				<p> You not have favorites campers</p>
+			)}
 		</>
 	)
 }
