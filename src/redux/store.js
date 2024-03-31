@@ -4,39 +4,37 @@ import { campersReducer } from './campers/campersSlice'
 import { carReducer } from './campers/carSlice'
 import { favoritesReducer } from './campers/favoriteSlice'
 
-// import { authReducer } from './auth/slice'
-// import persistReducer from 'redux-persist/es/persistReducer'
-// import storage from 'redux-persist/lib/storage'
-// import {
-// 	persistStore,
-// 	FLUSH,
-// 	REHYDRATE,
-// 	PAUSE,
-// 	PERSIST,
-// 	PURGE,
-// 	REGISTER,
-// } from 'redux-persist'
+import persistReducer from 'redux-persist/es/persistReducer'
+import storage from 'redux-persist/lib/storage'
+import {
+	persistStore,
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
+} from 'redux-persist'
 
-// const authPersistConfig = {
-// 	key: 'auth',
-// 	storage,
-// 	whitelist: ['token'],
-// }
+const favoritePersistConfig = {
+	key: 'favorites',
+	storage,
+	whitelist: ['favorites'],
+}
 
 export const store = configureStore({
 	reducer: {
 		campers: campersReducer,
 		car: carReducer,
 		filter: filterReducer,
-		favorites: favoritesReducer,
-		// auth: persistReducer(authPersistConfig, authReducer),
+		favorites: persistReducer(favoritePersistConfig, favoritesReducer),
 	},
-	// middleware: getDefaultMiddleware =>
-	// 	getDefaultMiddleware({
-	// 		serializableCheck: {
-	// 			ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-	// 		},
-	// 	}),
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}),
 })
 
-// export const persistor = persistStore(store)
+export const persistor = persistStore(store)
