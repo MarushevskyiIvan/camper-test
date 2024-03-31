@@ -10,10 +10,10 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- font-family: "Inter", sans-serif;
- color: #101828;
- font-size: 16px;
-line-height: 1.50;
+  font-family: "Inter", sans-serif;
+  color: #101828;
+  font-size: 16px;
+  line-height: 1.50;
 
    width: 100%;
    height: 100vh;
@@ -24,6 +24,7 @@ line-height: 1.50;
 
 a {
   text-decoration: none;
+  cursor: pointer
 }
 
   ul {

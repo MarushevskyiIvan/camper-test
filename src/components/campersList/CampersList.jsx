@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
 import { CamperItem } from '../camperItem/CamperItem'
 import { LoadMoreBtn } from '../loadMoreBtn/LoadMoreBtn'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { getAllCarsInformation } from '../../redux/campers/operations'
+import { ItemModal } from '../modal/ItemModal'
 
 export const CampersList = ({ campers }) => {
 	const [page, setPage] = useState(1)
 	const [limit, setLimit] = useState(4)
+
+	const [selectedItemId, setSelectedItemId] = useState(null)
+	const [isModalOpen, setModal] = useState(false)
 
 	const dispatch = useDispatch()
 
@@ -18,16 +22,30 @@ export const CampersList = ({ campers }) => {
 		setLimit(prevLimit => prevLimit + 4)
 	}
 
+	const toggleModal = () => {
+		setModal(prevState => !prevState)
+	}
+
+	const handleShowMoreClick = id => {
+		setSelectedItemId(id)
+		toggleModal()
+	}
+
 	return (
 		<>
-			<ul>
-				<CamperItem campers={campers} />
-				<li>
-					{limit <= campers.length && (
-						<LoadMoreBtn addCampers={handlePagination} />
-					)}
-				</li>
-			</ul>
+			<div>
+				<ul>
+					<CamperItem handleShowMore={handleShowMoreClick} campers={campers} />
+				</ul>
+				{limit <= campers.length && (
+					<LoadMoreBtn addCampers={handlePagination} />
+				)}
+			</div>
+			<ItemModal
+				isOpen={isModalOpen}
+				isClose={toggleModal}
+				id={selectedItemId}
+			/>
 		</>
 	)
 }

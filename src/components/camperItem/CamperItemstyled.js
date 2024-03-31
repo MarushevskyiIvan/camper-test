@@ -50,6 +50,11 @@ export const TitleWrap = styled.div`
 	justify-content: space-between;
 	margin-bottom: 8px;
 `
+
+export const LinkA = styled.a`
+	text-decoration: underline;
+`
+
 export const SvgStar = styled.svg`
 	height: 16px;
 	width: 16px;

@@ -1,12 +1,10 @@
 import Modal from 'react-modal'
 import { CamperDetails } from '../camperDetails/CamperDetails'
-import { useSelector } from 'react-redux'
-import { campersSelector } from '../../redux/campers/selectors'
 import { Features } from '../features/Features'
 import { ModalForm } from '../modalForm/Modalform'
 import { Link } from 'react-router-dom'
 import { Reviews } from '../reviews/Reviews'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 Modal.setAppElement('#root')
 
@@ -27,15 +25,7 @@ const customStyles = {
 }
 
 export const ItemModal = ({ isOpen, isClose, id }) => {
-	const [camper, setCamper] = useState({})
 	const [activeTab, setActiveTab] = useState(null)
-
-	const campers = useSelector(campersSelector)
-
-	useEffect(() => {
-		const oneCar = campers.find(item => item.id === id)
-		setCamper(oneCar)
-	}, [campers, id])
 
 	const handleTabChange = tab => {
 		setActiveTab(tab)
@@ -43,7 +33,7 @@ export const ItemModal = ({ isOpen, isClose, id }) => {
 
 	return (
 		<Modal isOpen={isOpen} onRequestClose={isClose} style={customStyles}>
-			<CamperDetails camper={camper} />
+			<CamperDetails id={id} />
 			<ul>
 				<li>
 					<Link to='#' onClick={() => handleTabChange('features')}>

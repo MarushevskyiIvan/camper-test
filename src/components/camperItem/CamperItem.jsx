@@ -5,6 +5,7 @@ import {
 	DescriptionWrap,
 	Img,
 	Li,
+	LinkA,
 	Name,
 	OptionsLi,
 	OptionsSvg,
@@ -23,7 +24,7 @@ import { FavoriteButton } from '../favoriteButton/FavoriteButton'
 const defaultImg =
 	'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=342x342'
 
-export const CamperItem = ({ campers }) => {
+export const CamperItem = ({ handleShowMore, campers }) => {
 	return (
 		<>
 			{campers &&
@@ -61,16 +62,18 @@ export const CamperItem = ({ campers }) => {
 									</TitleWrap>
 
 									<RatingLocation>
-										<RatingLocationWrap>
-											<Span>
-												<SvgStar>
-													<use href={sprite + '#icon-star'} />
-												</SvgStar>
-												<p>
-													{rating}({reviews.length} Reviews)
-												</p>
-											</Span>
-										</RatingLocationWrap>
+										<LinkA>
+											<RatingLocationWrap>
+												<Span>
+													<SvgStar>
+														<use href={sprite + '#icon-star'} />
+													</SvgStar>
+													<p>
+														{rating}({reviews.length} Reviews)
+													</p>
+												</Span>
+											</RatingLocationWrap>
+										</LinkA>
 
 										<RatingLocationWrap>
 											<SvgLocation>
@@ -134,7 +137,7 @@ export const CamperItem = ({ campers }) => {
 										)}
 									</OptionsUl>
 
-									<ShowMoreButton id={id} />
+									<ShowMoreButton onShowMore={handleShowMore} id={id} />
 								</DescriptionWrap>
 							</Li>
 						)

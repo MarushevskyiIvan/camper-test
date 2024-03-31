@@ -1,23 +1,5 @@
-import { useState } from 'react'
 import { Btn } from './ShowMoreButton.styled'
-import { ItemModal } from '../modal/ItemModal.jsx'
-// import { useDispatch } from 'react-redux'
-// import { getOneCar } from '../../redux/campers/operations.js'
 
-export const ShowMoreButton = ({ id }) => {
-	const [isModalOpen, setModal] = useState(false)
-	// const dispatch = useDispatch()
-
-	const toggleModal = () => {
-		setModal(prevState => !prevState)
-		// dispatch(getOneCar(id))
-	}
-
-	return (
-		<>
-			<Btn onClick={toggleModal}>Show more</Btn>
-
-			<ItemModal isOpen={isModalOpen} isClose={toggleModal} id={id} />
-		</>
-	)
+export const ShowMoreButton = ({ id, onShowMore }) => {
+	return <Btn onClick={() => onShowMore(id)}>Show more</Btn>
 }

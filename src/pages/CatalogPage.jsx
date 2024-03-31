@@ -11,6 +11,7 @@ import { LocationForm } from '../components/locationsForm/LocationForm'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 import { useSelector } from 'react-redux'
 import { campersSelector } from '../redux/campers/selectors'
+import { Container } from '../GlobalStyles'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'

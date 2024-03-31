@@ -20,7 +20,7 @@ const FavoritesPage = () => {
 					<CamperListFilter />
 				</div>
 			</div>
-			{favorites ? (
+			{favorites.length > 0 ? (
 				<CampersList campers={favorites} />
 			) : (
 				<p> You not have favorites campers</p>
