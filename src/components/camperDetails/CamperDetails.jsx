@@ -4,6 +4,7 @@ import {
 	DescripText,
 	Img,
 	ImgWrap,
+	LinkA,
 	ModalWrap,
 	Name,
 	Price,
@@ -42,14 +43,16 @@ export const CamperDetails = ({ id }) => {
 
 					<RatingLocation>
 						<RatingLocationWrap>
-							<Span>
-								<SvgStar>
-									<use href={sprite + '#icon-star'} />
-								</SvgStar>
-								<p>
-									{rating}({reviews?.length} Reviews)
-								</p>
-							</Span>
+							<LinkA>
+								<Span>
+									<SvgStar>
+										<use href={sprite + '#icon-star'} />
+									</SvgStar>
+									<p>
+										{rating}({reviews?.length} Reviews)
+									</p>
+								</Span>
+							</LinkA>
 						</RatingLocationWrap>
 
 						<RatingLocationWrap>

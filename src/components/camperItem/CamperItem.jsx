@@ -62,8 +62,8 @@ export const CamperItem = ({ handleShowMore, campers }) => {
 									</TitleWrap>
 
 									<RatingLocation>
-										<LinkA>
-											<RatingLocationWrap>
+										<RatingLocationWrap>
+											<LinkA>
 												<Span>
 													<SvgStar>
 														<use href={sprite + '#icon-star'} />
@@ -72,8 +72,8 @@ export const CamperItem = ({ handleShowMore, campers }) => {
 														{rating}({reviews.length} Reviews)
 													</p>
 												</Span>
-											</RatingLocationWrap>
-										</LinkA>
+											</LinkA>
+										</RatingLocationWrap>
 
 										<RatingLocationWrap>
 											<SvgLocation>

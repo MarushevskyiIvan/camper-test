@@ -1,13 +1,49 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const ModalWrap = styled.div`
-	position: relative;
-	border-radius: 20px;
-	padding: 40px;
-	width: 982px;
-	height: 720px;
+export const ModalContainer = styled.div`
+	/* Стилі для модального вікна */
+	/* Додайте інші стилі за потреби */
 
-	background: #fff;
+	/* Стилі для скролбара */
+	overflow-x: auto; /* Забезпечте прокрутку по вертикалі */
+	scrollbar-width: thin; /* Ширина скролбара (може бути thin, auto або none) */
+	scrollbar-color: red transparent; /* Колір скролбара та його фон */
+	&::-webkit-scrollbar {
+		width: 3px;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: 50px;
+		margin: 25px 0;
+		background-color: red;
+	}
+`
+
+export const ModalWrap = styled.div`
+	/* overflow-y: auto;
+	/* Стилізація скролбару */
+	&::-webkit-scrollbar {
+		width: 100px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: red; /* Колір заповнювача скролбару */
+		border-radius: 5px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: #990000; /* Колір заповнювача скролбару при наведенні */
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: #f0f0f0; /* Колір фону скролбару */
+		border-radius: 5px;
+	} */
+`
+
+export const LinkA = styled(Link)`
+	text-decoration: underline;
 `
 export const SvgClose = styled.svg`
 	height: 32px;

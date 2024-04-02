@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Li = styled.li`
 	border: 1px solid rgba(16, 24, 40, 0.2);
@@ -51,7 +52,7 @@ export const TitleWrap = styled.div`
 	margin-bottom: 8px;
 `
 
-export const LinkA = styled.a`
+export const LinkA = styled(Link)`
 	text-decoration: underline;
 `
 

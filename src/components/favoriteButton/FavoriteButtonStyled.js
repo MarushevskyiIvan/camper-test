@@ -10,6 +10,11 @@ export const SvgFavoriteHeart = styled.svg`
 		stroke: #d84343;
 	}
 `
+export const Button = styled.button`
+	background: none;
+	border: none;
+`
+
 export const SvgHeart = styled.svg`
 	height: 24px;
 	width: 24px;

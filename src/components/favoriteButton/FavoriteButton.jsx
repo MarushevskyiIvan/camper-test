@@ -4,7 +4,7 @@ import { addFavorites, deleteFavorite } from '../../redux/campers/favoriteSlice'
 
 import sprite from '../../assets/sprite.svg'
 import { campersSelector } from '../../redux/campers/selectors'
-import { SvgFavoriteHeart, SvgHeart } from './FavoriteButtonStyled'
+import { Button, SvgFavoriteHeart, SvgHeart } from './FavoriteButtonStyled'
 
 const storageKey = 'persist:favorites'
 
@@ -40,9 +40,11 @@ export const FavoriteButton = ({ id }) => {
 	return (
 		<>
 			{favorite ? (
-				<SvgFavoriteHeart onClick={favoriteHandler}>
-					<use href={sprite + '#icon-heart-null'} />
-				</SvgFavoriteHeart>
+				<Button>
+					<SvgFavoriteHeart onClick={favoriteHandler}>
+						<use href={sprite + '#icon-heart-null'} />
+					</SvgFavoriteHeart>
+				</Button>
 			) : (
 				<SvgHeart onClick={favoriteHandler}>
 					<use href={sprite + '#icon-heart-null'} />
