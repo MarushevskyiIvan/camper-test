@@ -1,20 +1,20 @@
 import {} from './CamperDetails'
 import sprite from '../../assets/sprite.svg'
 import {
+	ButtonClose,
 	DescripText,
 	Img,
 	ImgWrap,
 	LinkA,
-	ModalWrap,
 	Name,
 	Price,
-	PriceWrap,
 	RatingLocation,
 	RatingLocationWrap,
 	Span,
 	SvgClose,
 	SvgLocation,
 	SvgStar,
+	Wrap,
 } from './CamperDetailsStyled'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -23,7 +23,7 @@ import { campersSelector } from '../../redux/campers/selectors'
 const defaultImg =
 	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBFjq4Ist4_3GEX01sQ9Kg7Ucxkmg8FbMP7w&usqp=CAU'
 
-export const CamperDetails = ({ id }) => {
+export const CamperDetails = ({ id, onClose }) => {
 	const [camper, setCamper] = useState({})
 	const campers = useSelector(campersSelector)
 
@@ -38,7 +38,7 @@ export const CamperDetails = ({ id }) => {
 	return (
 		<>
 			{camper && (
-				<ModalWrap>
+				<Wrap>
 					<Name>{name}</Name>
 
 					<RatingLocation>
@@ -62,15 +62,17 @@ export const CamperDetails = ({ id }) => {
 							<p>{location}</p>
 						</RatingLocationWrap>
 					</RatingLocation>
-					<PriceWrap>
-						<Price>
-							{'\u20AC'}
-							{price}
-						</Price>
+
+					<Price>
+						{'\u20AC'}
+						{price}
+					</Price>
+
+					<ButtonClose onClick={onClose}>
 						<SvgClose>
 							<use href={sprite + '#icon-close'} />
 						</SvgClose>
-					</PriceWrap>
+					</ButtonClose>
 					{gallery && gallery.length > 0 && (
 						<ImgWrap>
 							<Img src={gallery[0] || defaultImg} />
@@ -80,7 +82,7 @@ export const CamperDetails = ({ id }) => {
 					)}
 
 					<DescripText>{description}</DescripText>
-				</ModalWrap>
+				</Wrap>
 			)}
 		</>
 	)

@@ -1,8 +1,9 @@
 import { Formik, Field, Form } from 'formik'
+import { FormWrap } from './ModalFormStyled'
 
 export const ModalForm = () => {
 	return (
-		<div>
+		<FormWrap>
 			<h3>Book your campervan now</h3>
 			<p>Stay connected! We are always ready to help you.</p>
 			<Formik
@@ -36,6 +37,6 @@ export const ModalForm = () => {
 					<button type='submit'>Send</button>
 				</Form>
 			</Formik>
-		</div>
+		</FormWrap>
 	)
 }
