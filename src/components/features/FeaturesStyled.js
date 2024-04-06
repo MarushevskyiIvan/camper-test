@@ -58,12 +58,13 @@ export const OptionsSvg = styled.svg`
 
 export const Ul = styled.ul`
 	width: 430px;
-	height: 286px;
+	/* height: 286px; */
 `
 
 export const Li = styled.li`
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 14px;
 
 	& span {
 		font-weight: 500;

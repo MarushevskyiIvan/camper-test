@@ -32,6 +32,7 @@ body {
   overflow: auto;
     
 }
+.modal-open{overflow: hidden;}
 
 a {
   text-decoration: none;

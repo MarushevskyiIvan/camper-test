@@ -6,6 +6,7 @@ import { ModalForm } from '../modalForm/Modalform'
 import { Reviews } from '../reviews/Reviews'
 import { useState } from 'react'
 import {
+	DescrFormWrap,
 	FeatureReviewsFormWrap,
 	FeatureReviewsLink,
 	FeatureReviewsText,
@@ -23,7 +24,7 @@ const customStyles = {
 		height: '720px',
 		position: 'relative',
 		borderRadius: '20px',
-		// overflow: 'hidden',
+		overflow: 'hidden',
 		overflowX: 'hidden',
 		// overflowY: 'hidden',
 		padding: '40px',
@@ -40,37 +41,52 @@ export const ItemModal = ({ isOpen, isClose, id }) => {
 		setActiveTab(tab)
 	}
 
+	const openModal = () => {
+		document.body.classList.add('modal-open')
+	}
+
+	const closeModal = () => {
+		document.body.classList.remove('modal-open')
+		isClose()
+	}
+
 	return (
-		<Modal isOpen={isOpen} onRequestClose={isClose} style={customStyles}>
+		<Modal
+			isOpen={isOpen}
+			onRequestClose={closeModal}
+			onAfterOpen={openModal}
+			style={customStyles}
+		>
 			<ModalContainer>
-				<CamperDetails id={id} onClose={isClose} />
+				<CamperDetails id={id} onClose={closeModal} />
 				<FeatureReviewsFormWrap>
-					<div>
-						<FeatureReviewsText>
-							<li>
-								<FeatureReviewsLink
-									to='#'
-									onClick={() => handleTabChange('features')}
-								>
-									Features
-								</FeatureReviewsLink>
-							</li>
+					<FeatureReviewsText>
+						<li>
+							<FeatureReviewsLink
+								to='#'
+								onClick={() => handleTabChange('features')}
+								className={activeTab === 'features' ? 'active' : ''}
+							>
+								Features
+							</FeatureReviewsLink>
+						</li>
 
-							<li>
-								<FeatureReviewsLink
-									to='#'
-									onClick={() => handleTabChange('reviews')}
-								>
-									Reviews
-								</FeatureReviewsLink>
-							</li>
-						</FeatureReviewsText>
-
+						<li>
+							<FeatureReviewsLink
+								to='#'
+								onClick={() => handleTabChange('reviews')}
+								className={activeTab === 'reviews' ? 'active' : ''}
+							>
+								Reviews
+							</FeatureReviewsLink>
+						</li>
+					</FeatureReviewsText>
+					<DescrFormWrap>
 						{activeTab === 'features' && <Features id={id} />}
 						{activeTab === 'reviews' && <Reviews id={id} />}
-					</div>
 
-					<ModalForm />
+						<ModalForm />
+					</DescrFormWrap>
 				</FeatureReviewsFormWrap>
 			</ModalContainer>
 		</Modal>

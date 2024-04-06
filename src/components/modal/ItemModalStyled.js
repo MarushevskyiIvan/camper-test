@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { globalColor } from '../../GlobalStyles'
 
@@ -45,7 +45,7 @@ export const FeatureReviewsText = styled.div`
 		bottom: -24px;
 	}
 `
-export const FeatureReviewsLink = styled(NavLink)`
+export const FeatureReviewsLink = styled(Link)`
 	display: flex;
 	gap: 40px;
 
@@ -53,19 +53,21 @@ export const FeatureReviewsLink = styled(NavLink)`
 	font-size: 20px;
 	line-height: 1.2;
 
-	/* &::after {
-		position: absolute;
-		content: '';
-		background-color: rgba(16, 24, 40, 0.2);
-		height: 1px;
-		width: 100%;
-		bottom: -24px;
-	} */
-
 	&.active {
-		border-bottom: 5px solid #e44848;
+		&::after {
+			position: absolute;
+			content: '';
+			background-color: ${globalColor.colorRed};
+			height: 4px;
+			width: 85px;
+			bottom: -25px;
+		}
 	}
 `
-export const FeatureReviewsFormWrap = styled.div`
+
+export const FeatureReviewsFormWrap = styled.div``
+
+export const DescrFormWrap = styled.div`
 	display: flex;
+	gap: 24px;
 `
