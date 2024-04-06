@@ -6,7 +6,6 @@ export const FormWrap = styled.div`
 	border-radius: 10px;
 	padding: 24px;
 	width: 448px;
-	height: 532px;
 `
 export const H3Title = styled.h3`
 	font-weight: 600;
@@ -28,13 +27,13 @@ export const Forma = styled.form`
 `
 export const Input = styled.input`
 	width: 100%;
-	background: ${globalColor.colorLightGrey};
+	background: ${globalColor.colorWhite};
 	border: none;
 	border-radius: 10px;
 	padding: 18px;
 
 	height: 56px;
-	background: ${globalColor.colorLightGrey};
+	background: ${globalColor.colorWhite};
 
 	&:focus::placeholder {
 		color: ${globalColor.colorBlack};
@@ -46,12 +45,12 @@ export const Input = styled.input`
 export const Textarea = styled.textarea`
 	width: 100%;
 	height: 114px;
-	background: ${globalColor.colorLightGrey};
+	background: ${globalColor.colorWhite};
 	border: none;
 	border-radius: 10px;
 	padding: 18px;
 
-	background: ${globalColor.colorLightGrey};
+	background: ${globalColor.colorWhite};
 	resize: none;
 	&:focus::placeholder {
 		color: ${globalColor.colorBlack};

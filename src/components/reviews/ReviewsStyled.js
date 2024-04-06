@@ -19,28 +19,39 @@ export const OptionsUl = styled.ul`
 export const TitleH3 = styled.h3`
 	font-weight: 600;
 	font-size: 18px;
-	line-height: 133%;
-
-	/* font-weight: 600;
-	font-size: 20px;
-	line-height: 1.2%;
-
-	margin-bottom: 48px;
-	position: relative;
-
-	&::after {
-		content: '';
-		position: absolute;
-		left: 0;
-		bottom: -24px;
-		width: 100%;
-		height: 1px;
-		background-color: rgba(16, 24, 40, 0.1);
-	} */
+	line-height: 1.33;
+	margin-bottom: 4px;
 `
+
+// export const NameSvgDiv = styled.div``
+
+export const NameSpan = styled.span`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+
+	height: 60px;
+	width: 60px;
+	background: ${globalColor.colorLightGrey};
+
+	color: ${globalColor.colorRed};
+
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 1.25;
+`
+export const NameDiv = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 16px;
+`
+
 export const SvgStar = styled.svg`
 	height: 16px;
 	width: 16px;
+	display: inline-block;
 `
 
 export const OptionsLi = styled.li`
@@ -63,17 +74,9 @@ export const Ul = styled.ul`
 `
 
 export const Li = styled.li`
-	font-family: var(--font-family);
-	font-weight: 400;
+	width: 430px;
 	font-size: 16px;
-	line-height: 150%;
-	/* display: flex;
-	justify-content: space-between;
+	line-height: 1.5;
 
-	& span {
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 1.33;
-		text-align: center;
-	} */
+	margin-bottom: 24px;
 `

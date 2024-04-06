@@ -46,9 +46,11 @@ export const FavoriteButton = ({ id }) => {
 					</SvgFavoriteHeart>
 				</Button>
 			) : (
-				<SvgHeart onClick={favoriteHandler}>
-					<use href={sprite + '#icon-heart-null'} />
-				</SvgHeart>
+				<Button>
+					<SvgHeart onClick={favoriteHandler}>
+						<use href={sprite + '#icon-heart-null'} />
+					</SvgHeart>
+				</Button>
 			)}
 		</>
 	)

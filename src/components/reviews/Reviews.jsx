@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { campersSelector } from '../../redux/campers/selectors'
-import { Li, SvgStar, TitleH3, Ul } from './ReviewsStyled'
+import { Li, NameDiv, NameSpan, SvgStar, TitleH3, Ul } from './ReviewsStyled'
 import sprite from '../../assets/sprite.svg'
 
 export const Reviews = ({ id }) => {
@@ -18,14 +18,29 @@ export const Reviews = ({ id }) => {
 	return (
 		<Ul>
 			{reviews &&
-				reviews.map(({ reviewer_name, reviewer_rating, comment }) => {
+				reviews.map(({ reviewer_name, comment, reviewer_rating }) => {
+					const [firstWord] = reviewer_name
+
+					console.log('revreai', reviewer_rating)
+
 					return (
 						<Li key={nanoid()}>
-							<span>A</span>
-							<TitleH3>{reviewer_name}</TitleH3>
-							<SvgStar>
-								<use href={sprite + '#icon-star'} />
-							</SvgStar>
+							<NameDiv>
+								<NameSpan>{firstWord}</NameSpan>
+								<div>
+									<TitleH3>{reviewer_name}</TitleH3>
+
+									{Array.from({ length: 5 }, (_, index) => (
+										<SvgStar key={nanoid()}>
+											<use
+												href={sprite + '#icon-star'}
+												style={{ fill: 'red' }}
+											/>
+										</SvgStar>
+									))}
+								</div>
+							</NameDiv>
+
 							<p>{comment}</p>
 						</Li>
 					)
