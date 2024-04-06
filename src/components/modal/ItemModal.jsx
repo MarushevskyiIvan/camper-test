@@ -34,7 +34,7 @@ const customStyles = {
 }
 
 export const ItemModal = ({ isOpen, isClose, id }) => {
-	const [activeTab, setActiveTab] = useState(null)
+	const [activeTab, setActiveTab] = useState('features')
 
 	const handleTabChange = tab => {
 		setActiveTab(tab)

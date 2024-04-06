@@ -1,11 +1,19 @@
-import { Formik, Field, Form } from 'formik'
-import { FormWrap } from './ModalFormStyled'
+import { Formik } from 'formik'
+import {
+	FormBtn,
+	FormWrap,
+	Forma,
+	H3Title,
+	Input,
+	P,
+	Textarea,
+} from './ModalFormStyled'
 
 export const ModalForm = () => {
 	return (
 		<FormWrap>
-			<h3>Book your campervan now</h3>
-			<p>Stay connected! We are always ready to help you.</p>
+			<H3Title>Book your campervan now</H3Title>
+			<P>Stay connected! We are always ready to help you.</P>
 			<Formik
 				initialValues={{
 					firstName: '',
@@ -17,25 +25,25 @@ export const ModalForm = () => {
 					console.log(values)
 				}}
 			>
-				<Form>
+				<Forma>
 					<label>
-						<Field name='firstName' placeholder='Name' />
+						<Input name='firstName' placeholder='Name' type='text' />
 					</label>
 
 					<label>
-						<Field name='email' placeholder='Email' type='email' />
+						<Input name='email' placeholder='Email' type='email' />
 					</label>
 
 					<label>
-						<Field name='BookingDate' placeholder='Booking date' />
+						<Input name='BookingDate' placeholder='Booking date' type='date' />
 					</label>
 
 					<label>
-						<Field name='Comments' placeholder='Comments' />
+						<Textarea name='Comments' placeholder='Comments' type='text' />
 					</label>
 
-					<button type='submit'>Send</button>
-				</Form>
+					<FormBtn type='submit'>Send</FormBtn>
+				</Forma>
 			</Formik>
 		</FormWrap>
 	)
