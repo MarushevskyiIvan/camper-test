@@ -31,7 +31,7 @@ export const LocationForm = () => {
 						type='text'
 						placeholder='City'
 						name='name'
-						onChange={evt => handleChange(evt.target.value)}
+						onSubmit={evt => handleChange(evt.target.value)}
 					/>
 				</InputWrapper>
 			</LocalForm>

@@ -7,11 +7,10 @@ import // selectError,
 // import { getAllCarsInformation } from '../redux/campers/operations'
 // import { useDispatch, useSelector } from 'react-redux'
 import { CampersList } from '../components/campersList/CampersList'
-import { LocationForm } from '../components/locationsForm/LocationForm'
+// import { LocationForm } from '../components/locationsForm/LocationForm'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 import { useSelector } from 'react-redux'
-import { campersSelector } from '../redux/campers/selectors'
-import { Container } from '../GlobalStyles'
+import { selectorCampers } from '../redux/campers/selectors'
 
 // import { Loader } from '../components/loader/Loader.jsx'
 // import { Filter } from '../components/filter/FormFilter.jsx'
@@ -20,7 +19,8 @@ import { Container } from '../GlobalStyles'
 // import { ContactsTitle, TextError, Wrapper } from '../components/App.styled.js'
 
 const CatalogPage = () => {
-	const campers = useSelector(campersSelector)
+	const campers = useSelector(selectorCampers)
+
 	// const dispatch = useDispatch()
 	// const isLoading = useSelector(selectIsLoading)
 	// const error = useSelector(selectError)
@@ -34,7 +34,7 @@ const CatalogPage = () => {
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					<LocationForm />
+					{/* <LocationForm /> */}
 					<CamperListFilter />
 				</div>
 			</div>

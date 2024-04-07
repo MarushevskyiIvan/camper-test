@@ -27,7 +27,7 @@ const FavoritesPage = () => {
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					<LocationForm />
+					{/* <LocationForm /> */}
 					<CamperListFilter />
 				</div>
 			</div>

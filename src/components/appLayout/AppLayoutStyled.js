@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 export const MainContainer = styled.div`
-	padding-top: 100px;
+	padding-top: 50px;
 	display: flex;
 	gap: 64px;
 `
