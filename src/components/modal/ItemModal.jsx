@@ -26,7 +26,6 @@ const customStyles = {
 		borderRadius: '20px',
 		overflow: 'hidden',
 		overflowX: 'hidden',
-		// overflowY: 'hidden',
 		padding: '40px',
 		width: '982px',
 

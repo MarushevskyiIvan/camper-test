@@ -96,34 +96,40 @@ export const fadeInAnimation = keyframes`
   
  		
 `
+
+export const BackgroundOverlay = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
 export const LoadingWindow = styled.div`
 	animation: ${fadeInAnimation} 0.4s both;
 	background: transparent;
-	/* rgba(228, 72, 72, 0.2); */
-	border-radius: 6px;
-	border: 1px solid black;
-	/* outline: ${globalColor.colorRed}; */
-	/* box-shadow: inset 0 0 2px 2px rgba(228, 72, 72, 1); */
-	color: #ffe4e1;
-	height: 100vh;
-	/* left: 50%;
-	top: 50%; */
-	/* margin-left: -150px;
-	margin-top: -100px;
-	position: fixed; */
-
-	width: 100vw;
+	height: 300px;
+	width: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	z-index: 99;
 `
 export const Text = styled.div`
-	color: ${globalColor.colorOrange};
+	color: ${globalColor.colorRed};
 	font-size: 24px;
 	font-weight: 600;
 	position: absolute;
 	width: auto;
 	top: 75%;
-	left: 38%;
-	margin: 0 auto;
+	left: 50%;
+	transform: translate(0, -50%);
 
 	.dots {
 		display: inline-block;
@@ -138,43 +144,41 @@ export const Car = styled.div`
 	position: absolute;
 	width: 234px;
 	height: 84px;
-	left: 50%;
+	left: 60%;
 	top: 50%;
-	transform: translate(-0%, -50%) scale(2);
-	margin: auto;
-
+	transform: translate(0, -20%) scale(2);
 	.strike {
 		position: absolute;
 		width: 22px;
 		height: 2px;
-		background: #ffe4e1;
+		background: ${globalColor.colorRed};
 		animation: ${strikesAnimation} 0.2s linear infinite;
 	}
 
 	.strike2 {
-		top: 22px;
+		top: 11px;
 		animation-delay: 0.05s;
 	}
 
 	.strike3 {
-		top: 44px;
+		top: 22px;
 		animation-delay: 0.1s;
 	}
 
 	.strike4 {
-		top: 66px;
+		top: 33px;
 		animation-delay: 0.15s;
 	}
 
 	.strike5 {
-		top: 88px;
+		top: 44px;
 		animation-delay: 0.2s;
 	}
 
 	.car-detail {
 		position: absolute;
 		display: block;
-		background: ${globalColor.colorOrange};
+		background: ${globalColor.colorRed};
 		animation: ${carAnimation} 0.5s linear infinite;
 
 		&.spoiler {
@@ -200,7 +204,7 @@ export const Car = styled.div`
 			left: 12px;
 			border-top-left-radius: 30px;
 			border-top-right-radius: 45px 40px;
-			border: 4px solid blue;
+			border: 4px solid black;
 			background: none;
 			box-sizing: border-box;
 		}
