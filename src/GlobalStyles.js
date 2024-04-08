@@ -30,6 +30,7 @@ body {
    margin: 0;
 
   overflow: auto;
+
     
 }
 .modal-open{overflow: hidden;}
