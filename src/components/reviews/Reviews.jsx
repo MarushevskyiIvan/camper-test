@@ -21,8 +21,6 @@ export const Reviews = ({ id }) => {
 				reviews.map(({ reviewer_name, comment, reviewer_rating }) => {
 					const [firstWord] = reviewer_name
 
-					console.log('revreai', reviewer_rating)
-
 					return (
 						<Li key={nanoid()}>
 							<NameDiv>

@@ -1,12 +1,6 @@
 import styled from 'styled-components'
 import { globalColor } from '../../GlobalStyles'
 
-export const Wrap = styled.div`
-	/* display: flex;
-	flex-direction: column;
-	gap: 44px; */
-`
-
 export const OptionsUl = styled.ul`
 	width: 430px;
 
@@ -22,8 +16,6 @@ export const TitleH3 = styled.h3`
 	line-height: 1.33;
 	margin-bottom: 4px;
 `
-
-// export const NameSvgDiv = styled.div``
 
 export const NameSpan = styled.span`
 	display: flex;

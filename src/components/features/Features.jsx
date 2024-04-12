@@ -8,7 +8,6 @@ import {
 	Li,
 	Ul,
 	TitleH3,
-	Wrap,
 } from './FeaturesStyled'
 import sprite from '../../assets/sprite.svg'
 import { nanoid } from 'nanoid'
@@ -44,7 +43,7 @@ export const Features = ({ id }) => {
 	}
 
 	return (
-		<Wrap>
+		<div>
 			<OptionsUl>
 				{details &&
 					Object.entries(details).map(([key, value]) => (
@@ -91,6 +90,6 @@ export const Features = ({ id }) => {
 					<span> {consumption}</span>
 				</Li>
 			</Ul>
-		</Wrap>
+		</div>
 	)
 }

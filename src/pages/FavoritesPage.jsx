@@ -1,9 +1,7 @@
 import { useSelector } from 'react-redux'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 import { CampersList } from '../components/campersList/CampersList'
-import { LocationForm } from '../components/locationsForm/LocationForm'
 import { campersSelector, favoritesSelector } from '../redux/campers/selectors'
-import { useEffect, useState } from 'react'
 
 const FavoritesPage = () => {
 	// const [favorites, setFavorites] = useState([])
@@ -27,7 +25,6 @@ const FavoritesPage = () => {
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					{/* <LocationForm /> */}
 					<CamperListFilter />
 				</div>
 			</div>

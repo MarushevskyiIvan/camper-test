@@ -53,18 +53,7 @@ export const Img = styled.img`
 	height: 310px;
 	object-fit: cover;
 `
-export const PriceWrap = styled.div`
-	/* display: flex;
-	gap: 10px;
-	align-items: center;
-	margin-bottom: 24px; */
-`
 
-export const TitleWrap = styled.div`
-	/* display: flex;
-	justify-content: space-between;
-	margin-bottom: 8px; */
-`
 export const SvgStar = styled.svg`
 	height: 16px;
 	width: 16px;

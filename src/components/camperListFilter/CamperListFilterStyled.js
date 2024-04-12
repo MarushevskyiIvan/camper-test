@@ -93,9 +93,8 @@ export const FilterBtn = styled.button`
 	border: none;
 	padding: 16px 40px;
 
-	/* background: var(--button); */
-	background: #e44848;
-	/* font-family: var(--font-family); */
+	background: ${globalColor.colorRed};
+
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 150%;

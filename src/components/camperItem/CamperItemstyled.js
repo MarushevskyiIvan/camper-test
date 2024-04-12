@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { globalColor } from '../../GlobalStyles'
 
 export const Li = styled.li`
 	border: 1px solid rgba(16, 24, 40, 0.2);
@@ -23,11 +24,9 @@ export const Img = styled.img`
 `
 
 export const Name = styled.h3`
-	/* font-family: var(--font-family); */
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 1.25;
-	/* color: var(--main); */
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -37,7 +36,6 @@ export const Price = styled.p`
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 1.25;
-	/* color: var(--main); */
 `
 export const PriceWrap = styled.div`
 	display: flex;
@@ -87,7 +85,6 @@ export const RatingLocationWrap = styled.div`
 `
 
 export const DescripText = styled.p`
-	/* color: var(--text); */
 	width: 525px;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -113,8 +110,7 @@ export const OptionsLi = styled.li`
 	align-items: center;
 	height: 44px;
 
-	/* background: var(--block-features); */
-	background: #f2f4f7;
+	background: ${globalColor.colorLightGrey};
 `
 export const OptionsSvg = styled.svg`
 	width: 20px;

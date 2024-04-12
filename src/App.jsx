@@ -5,8 +5,6 @@ import CatalogPage from './pages/CatalogPage'
 import AppLayout from './components/appLayout/AppLayout'
 import FavoritesPage from './pages/FavoritesPage'
 
-// import { ItemModalPage } from './pages/ItemModalPage'
-
 function App() {
 	return (
 		<>

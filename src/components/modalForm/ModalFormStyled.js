@@ -67,9 +67,7 @@ export const FormBtn = styled.button`
 	width: 160px;
 	height: 56px;
 
-	/* background: var(--button); */
-	background: #e44848;
-	/* font-family: var(--font-family); */
+	background: ${globalColor.colorRed};
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 1.5;
