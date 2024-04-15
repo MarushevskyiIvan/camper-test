@@ -16,6 +16,23 @@ export const getAllCarsInformation = createAsyncThunk(
 	}
 )
 
+export const getAllCarsInformation1 = createAsyncThunk(
+	'campers/filter',
+	async (formData, thunkAPI) => {
+		try {
+			const filterParams = Object.entries(formData)
+				.filter(([key, value]) => value)
+				.map(([key, value]) => `${key}=${value}`)
+			const queryString = filterParams.join('&')
+
+			const { data } = await axios.get(`/campers?${queryString}`)
+			console.log('data', data)
+			return data
+		} catch (error) {
+			return thunkAPI.rejectWithValue(error.message)
+		}
+	}
+)
 export const getOneCar = createAsyncThunk(
 	'cars/getOne',
 	async (id, thunkAPI) => {
