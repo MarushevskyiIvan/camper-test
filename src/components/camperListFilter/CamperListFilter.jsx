@@ -13,45 +13,29 @@ import {
 	Title,
 } from './CamperListFilterStyled'
 import sprite from '../../assets/sprite.svg'
-import { useState } from 'react'
+
 import { useDispatch } from 'react-redux'
-import { filter } from '../../redux/campers/filterSlice'
-import { getAllCarsInformation1 } from '../../redux/campers/operations'
+// import { filter } from '../../redux/campers/filterSlice'
+
 import { useParams, useSearchParams } from 'react-router-dom'
+import { getAllCarsInformation } from '../../redux/campers/operations'
 
 export const CamperListFilter = () => {
-	// const [formData, setFormData] = useState({
-	// 	location: '',
-	// 	AC: false,
-	// 	transmission: false,
-	// 	kitchen: false,
-	// 	TV: false,
-	// 	shower: false,
-	// 	form: '',
-	// })
-
 	const [params, setParams] = useSearchParams()
+	const dispatch = useDispatch()
 
 	const allParams = Object.fromEntries(params)
+	params.set('page', 1)
+	params.set('limit', 4)
 
-	const location = params.get('location') ?? ''
+	console.log('allParams', allParams)
 
 	const handleParams = (key, evt) => {
-		const { type, checked } = evt.target
-
-		if (type === 'checkbox' && checked) {
-			params.set(key, 1)
-		} else {
-			params.delete(key)
-		}
-
-		setParams(params)
-	}
-
-	const handleRadioParams = (key, evt) => {
 		const { type, checked, value } = evt.target
 
-		if (type === 'radio' && checked) {
+		if (type === 'checkbox' && checked) {
+			params.set(key, value)
+		} else if (type === 'radio' && checked) {
 			params.set(key, value)
 		} else {
 			params.delete(key)
@@ -70,23 +54,10 @@ export const CamperListFilter = () => {
 		setParams(params)
 	}
 
-	const dispatch = useDispatch()
-
-	const handleChange = event => {
-		const { name, value, type, checked } = event.target
-		const newValue = type === 'checkbox' ? checked : value
-
-		setFormData(prevFormData => ({
-			...prevFormData,
-			[name]: newValue,
-		}))
-	}
-
 	const handleSubmit = evt => {
 		evt.preventDefault()
 
-		// dispatch(filter(formData))
-		dispatch(getAllCarsInformation1(allParams))
+		dispatch(getAllCarsInformation(allParams))
 	}
 
 	return (
@@ -112,8 +83,8 @@ export const CamperListFilter = () => {
 				<Input
 					type='checkbox'
 					name='AC'
-					value={false}
-					onChange={evt => handleParams('AC', evt)}
+					value={1}
+					onChange={evt => handleParams('airConditioner', evt)}
 					id='AC'
 				/>
 				<Label htmlFor='AC'>
@@ -125,7 +96,7 @@ export const CamperListFilter = () => {
 				<Input
 					type='checkbox'
 					name='transmission'
-					value={false}
+					value='automatic'
 					onChange={evt => handleParams('transmission', evt)}
 					id='transmission'
 				/>
@@ -138,7 +109,7 @@ export const CamperListFilter = () => {
 				<Input
 					type='checkbox'
 					name='kitchen'
-					value={false}
+					value={1}
 					onChange={evt => handleParams('kitchen', evt)}
 					id='kitchen'
 				/>
@@ -152,7 +123,7 @@ export const CamperListFilter = () => {
 				<Input
 					type='checkbox'
 					name='TV'
-					value={false}
+					value={1}
 					onChange={evt => handleParams('TV', evt)}
 					id='TV'
 				/>
@@ -166,7 +137,7 @@ export const CamperListFilter = () => {
 				<Input
 					type='checkbox'
 					name='shower'
-					value={false}
+					value={1}
 					onChange={evt => handleParams('shower', evt)}
 					id='shower'
 				/>
@@ -183,9 +154,9 @@ export const CamperListFilter = () => {
 				<Input
 					type='radio'
 					name='form'
-					value='van'
+					value='panelTruck'
 					// checked={formData.Form === 'van'}
-					onChange={evt => handleRadioParams('form', evt)}
+					onChange={evt => handleParams('form', evt)}
 					id='van'
 				/>
 				<Label htmlFor='van'>
@@ -200,7 +171,7 @@ export const CamperListFilter = () => {
 					name='form'
 					value='fullyIntegrated'
 					// checked={formData.Form === 'fullyIntegrated'}
-					onChange={evt => handleRadioParams('form', evt)}
+					onChange={evt => handleParams('form', evt)}
 					id='fullyIntegrated'
 				/>
 				<Label
@@ -227,7 +198,7 @@ export const CamperListFilter = () => {
 					name='form'
 					value='alcove'
 					// checked={formData.Form === 'alcove'}
-					onChange={evt => handleRadioParams('form', evt)}
+					onChange={evt => handleParams('form', evt)}
 					id='alcove'
 				/>
 				<Label htmlFor='alcove'>
