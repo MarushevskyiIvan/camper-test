@@ -25,10 +25,8 @@ export const CamperListFilter = () => {
 	const dispatch = useDispatch()
 
 	const allParams = Object.fromEntries(params)
-	params.set('page', 1)
-	params.set('limit', 4)
-
-	console.log('allParams', allParams)
+	// params.set('page', 1)
+	// params.set('limit', 4)
 
 	const handleParams = (key, evt) => {
 		const { type, checked, value } = evt.target

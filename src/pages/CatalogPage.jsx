@@ -32,7 +32,7 @@ const CatalogPage = () => {
 				</div>
 			</div>
 			{error ? (
-				<TextError>Oоps you have a problem ...</TextError>
+				<p>Oоps you have a problem ...</p>
 			) : (
 				<CampersList campers={campers} />
 			)}

@@ -15,7 +15,7 @@ export const getAllCarsInformation = createAsyncThunk(
 			const queryString = filterParams.join('&')
 
 			const { data } = await axios.get(`/campers?${queryString}`)
-
+			console.log('data', data)
 			return data
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message)
