@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { useSearchParams } from 'react-router-dom'
 
 axios.defaults.baseURL = 'https://65feab57b2a18489b38664b8.mockapi.io/campers'
 
@@ -7,8 +8,15 @@ export const getAllCarsInformation = createAsyncThunk(
 	'campers/getAll',
 	async (formData, thunkAPI) => {
 		try {
-			console.log('formData', formData)
-			const filterParams = Object.entries(formData)
+			const currentParams = new URLSearchParams(window.location.search)
+			console.log('currentParams', currentParams.get('page') || 1)
+
+			const page = currentParams.get('page') || 1
+			const limit = currentParams.get('limit') || 4
+
+			const allParams = Object.fromEntries(currentParams)
+
+			const filterParams = Object.entries({ ...allParams, page, limit })
 				.filter(([key, value]) => value)
 				.map(([key, value]) => `${key}=${value}`)
 

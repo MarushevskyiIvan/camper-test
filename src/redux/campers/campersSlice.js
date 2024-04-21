@@ -11,7 +11,7 @@ const initialState = {
 	isLoading: false,
 	error: null,
 }
-console.log('campers', initialState.campers)
+
 const campersSlice = createSlice({
 	name: 'campers',
 	initialState: initialState,

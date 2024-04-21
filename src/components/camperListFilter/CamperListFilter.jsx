@@ -24,9 +24,10 @@ export const CamperListFilter = () => {
 	const [params, setParams] = useSearchParams()
 	const dispatch = useDispatch()
 
+	const page = params.get('page') || 1
+	let limit = parseInt(params.get('limit')) || 4
+
 	const allParams = Object.fromEntries(params)
-	// params.set('page', 1)
-	// params.set('limit', 4)
 
 	const handleParams = (key, evt) => {
 		const { type, checked, value } = evt.target
@@ -55,7 +56,7 @@ export const CamperListFilter = () => {
 	const handleSubmit = evt => {
 		evt.preventDefault()
 
-		dispatch(getAllCarsInformation(allParams))
+		dispatch(getAllCarsInformation({ page, limit, ...allParams }))
 	}
 
 	return (
