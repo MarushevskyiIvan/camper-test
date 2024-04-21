@@ -9,16 +9,6 @@ export const LocationForm = () => {
 		setName(newQuery)
 	}
 
-	const formSubmit = evt => {
-		evt.preventDefault()
-		// if (!name.trim()) {
-		// 	toast.error('Please enter the text of the query')
-		// 	return
-		// }
-
-		// handleParams(name)
-	}
-
 	return (
 		<>
 			<LocalForm>

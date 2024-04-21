@@ -7,7 +7,6 @@ import { Reviews } from '../reviews/Reviews'
 import { useState } from 'react'
 import {
 	DescrFormWrap,
-	FeatureReviewsFormWrap,
 	FeatureReviewsLink,
 	FeatureReviewsText,
 	ModalContainer,
@@ -58,7 +57,7 @@ export const ItemModal = ({ isOpen, isClose, id }) => {
 		>
 			<ModalContainer>
 				<CamperDetails id={id} onClose={closeModal} />
-				<FeatureReviewsFormWrap>
+				<div>
 					<FeatureReviewsText>
 						<li>
 							<FeatureReviewsLink
@@ -86,7 +85,7 @@ export const ItemModal = ({ isOpen, isClose, id }) => {
 
 						<ModalForm />
 					</DescrFormWrap>
-				</FeatureReviewsFormWrap>
+				</div>
 			</ModalContainer>
 		</Modal>
 	)

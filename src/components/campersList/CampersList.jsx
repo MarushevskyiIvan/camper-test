@@ -1,32 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { CamperItem } from '../camperItem/CamperItem'
 import { LoadMoreBtn } from '../loadMoreBtn/LoadMoreBtn'
-import { useDispatch } from 'react-redux'
-import { getAllCarsInformation } from '../../redux/campers/operations'
+import { useSelector } from 'react-redux'
+
 import { ItemModal } from '../modal/ItemModal'
 import { useSearchParams } from 'react-router-dom'
+import { selectorCampers } from '../../redux/campers/selectors'
 
 export const CampersList = ({ campers }) => {
 	const [selectedItemId, setSelectedItemId] = useState(null)
 	const [isModalOpen, setModal] = useState(false)
 	const [params, setParams] = useSearchParams()
 
-	const dispatch = useDispatch()
-
 	const page = params.get('page') || 1
 	let limit = parseInt(params.get('limit')) || 4
 
 	const allParams = Object.fromEntries(params)
-	console.log('allParams', allParams)
-
-	useEffect(() => {
-		dispatch(getAllCarsInformation())
-	}, [dispatch, limit, page])
 
 	const handlePagination = () => {
 		limit += 4
 		setParams({ ...allParams, page, limit })
 	}
+
 	const toggleModal = () => {
 		setModal(prevState => !prevState)
 	}

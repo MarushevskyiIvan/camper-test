@@ -15,9 +15,8 @@ import {
 import sprite from '../../assets/sprite.svg'
 
 import { useDispatch } from 'react-redux'
-// import { filter } from '../../redux/campers/filterSlice'
 
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { getAllCarsInformation } from '../../redux/campers/operations'
 
 export const CamperListFilter = () => {
@@ -39,7 +38,6 @@ export const CamperListFilter = () => {
 		} else {
 			params.delete(key)
 		}
-
 		setParams(params)
 	}
 
@@ -49,13 +47,11 @@ export const CamperListFilter = () => {
 		} else {
 			params.delete('location')
 		}
-
 		setParams(params)
 	}
 
 	const handleSubmit = evt => {
 		evt.preventDefault()
-
 		dispatch(getAllCarsInformation({ page, limit, ...allParams }))
 	}
 
@@ -154,7 +150,6 @@ export const CamperListFilter = () => {
 					type='radio'
 					name='form'
 					value='panelTruck'
-					// checked={formData.Form === 'van'}
 					onChange={evt => handleParams('form', evt)}
 					id='van'
 				/>
@@ -169,7 +164,6 @@ export const CamperListFilter = () => {
 					type='radio'
 					name='form'
 					value='fullyIntegrated'
-					// checked={formData.Form === 'fullyIntegrated'}
 					onChange={evt => handleParams('form', evt)}
 					id='fullyIntegrated'
 				/>
@@ -196,7 +190,6 @@ export const CamperListFilter = () => {
 					type='radio'
 					name='form'
 					value='alcove'
-					// checked={formData.Form === 'alcove'}
 					onChange={evt => handleParams('form', evt)}
 					id='alcove'
 				/>

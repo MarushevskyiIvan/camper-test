@@ -18,7 +18,7 @@ export const Reviews = ({ id }) => {
 	return (
 		<Ul>
 			{reviews &&
-				reviews.map(({ reviewer_name, comment, reviewer_rating }) => {
+				reviews.map(({ reviewer_name, comment }) => {
 					const [firstWord] = reviewer_name
 
 					return (

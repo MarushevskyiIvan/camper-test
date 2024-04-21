@@ -1,4 +1,3 @@
-import {} from './CamperDetails'
 import sprite from '../../assets/sprite.svg'
 import {
 	ButtonClose,

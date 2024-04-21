@@ -64,9 +64,6 @@ export const FeatureReviewsLink = styled(Link)`
 		}
 	}
 `
-
-export const FeatureReviewsFormWrap = styled.div``
-
 export const DescrFormWrap = styled.div`
 	display: flex;
 	gap: 24px;

@@ -20,6 +20,7 @@ export const Features = ({ id }) => {
 		const oneCar = campers.find(item => item.id === id)
 		setCamper(oneCar)
 	}, [campers, id])
+
 	const { details, form, length, width, height, tank, consumption } = camper
 
 	const svgMap = {

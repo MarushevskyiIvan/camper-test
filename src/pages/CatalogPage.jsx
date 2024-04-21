@@ -1,27 +1,32 @@
-import { CampersList } from '../components/campersList/CampersList'
+import { useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
-import { useSelector } from 'react-redux'
+import { CampersList } from '../components/campersList/CampersList'
 import {
 	selectError,
 	selectIsLoading,
 	selectorCampers,
 } from '../redux/campers/selectors'
 import { Loader } from '../components/loader/Loader'
+import { getAllCarsInformation } from '../redux/campers/operations'
 
 const CatalogPage = () => {
-	const campers = useSelector(selectorCampers)
 	const isLoading = useSelector(selectIsLoading)
 	const error = useSelector(selectError)
+	const [params, setParams] = useSearchParams()
 
-	// const dispatch = useDispatch()
-	// const isLoading = useSelector(selectIsLoading)
-	// const error = useSelector(selectError)
+	const campers = useSelector(selectorCampers)
 
-	// useEffect(() => {
-	// 	dispatch(getAllCarsInformation())
-	// }, [dispatch])
-	// const campers = useSelector(campersSelector)
+	const dispatch = useDispatch()
+
+	const page = params.get('page') || 1
+	let limit = parseInt(params.get('limit')) || 4
+
+	useEffect(() => {
+		dispatch(getAllCarsInformation())
+	}, [dispatch, limit, page])
 
 	return (
 		<>
@@ -32,7 +37,7 @@ const CatalogPage = () => {
 				</div>
 			</div>
 			{error ? (
-				<p>This Campers note found</p>
+				<p style={{ margin: 'auto' }}>This Campers is note found</p>
 			) : (
 				<CampersList campers={campers} />
 			)}

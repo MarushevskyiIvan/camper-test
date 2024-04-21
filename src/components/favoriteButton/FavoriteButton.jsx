@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addFavorites, deleteFavorite } from '../../redux/campers/favoriteSlice'
 
+import { addFavorites, deleteFavorite } from '../../redux/campers/favoriteSlice'
 import sprite from '../../assets/sprite.svg'
 import { campersSelector } from '../../redux/campers/selectors'
 import { Button, SvgFavoriteHeart, SvgHeart } from './FavoriteButtonStyled'

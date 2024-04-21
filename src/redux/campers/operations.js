@@ -6,10 +6,9 @@ axios.defaults.baseURL = 'https://65feab57b2a18489b38664b8.mockapi.io/campers'
 
 export const getAllCarsInformation = createAsyncThunk(
 	'campers/getAll',
-	async (formData, thunkAPI) => {
+	async (_, thunkAPI) => {
 		try {
 			const currentParams = new URLSearchParams(window.location.search)
-			console.log('currentParams', currentParams.get('page') || 1)
 
 			const page = currentParams.get('page') || 1
 			const limit = currentParams.get('limit') || 4
@@ -23,7 +22,7 @@ export const getAllCarsInformation = createAsyncThunk(
 			const queryString = filterParams.join('&')
 
 			const { data } = await axios.get(`/campers?${queryString}`)
-			console.log('data', data)
+
 			return data
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message)
