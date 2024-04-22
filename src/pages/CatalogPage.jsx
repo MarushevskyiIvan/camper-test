@@ -5,19 +5,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 import { CampersList } from '../components/campersList/CampersList'
 import {
+	campersSelector,
 	selectError,
 	selectIsLoading,
-	selectorCampers,
 } from '../redux/campers/selectors'
 import { Loader } from '../components/loader/Loader'
-import { getAllCarsInformation } from '../redux/campers/operations'
+import { getAllCarsInformation } from '../redux/operations'
 
 const CatalogPage = () => {
 	const isLoading = useSelector(selectIsLoading)
 	const error = useSelector(selectError)
 	const [params, setParams] = useSearchParams()
 
-	const campers = useSelector(selectorCampers)
+	const campers = useSelector(campersSelector)
 
 	const dispatch = useDispatch()
 
@@ -32,7 +32,7 @@ const CatalogPage = () => {
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					{isLoading && !error && <Loader />}
+					{/* {isLoading && !error && <Loader />} */}
 					<CamperListFilter />
 				</div>
 			</div>

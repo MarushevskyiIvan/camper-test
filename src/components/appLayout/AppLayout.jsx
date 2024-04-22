@@ -3,8 +3,12 @@ import { Suspense } from 'react'
 
 import { Header, HeaderLink, HeaderUl, MainContainer } from './AppLayoutStyled'
 import { Container, GlobalStyles } from '../../GlobalStyles'
-
+import { Loader } from '../loader/Loader'
+import { selectError, selectIsLoading } from '../../redux/campers/selectors'
+import { useSelector } from 'react-redux'
 const AppLayout = () => {
+	const isLoading = useSelector(selectIsLoading)
+	const error = useSelector(selectError)
 	return (
 		<Container>
 			<Header>
@@ -22,7 +26,8 @@ const AppLayout = () => {
 			</Header>
 			<main>
 				<MainContainer>
-					<Suspense fallback={<div>Loading...</div>}>
+					<Suspense fallback={<Loader />}>
+						{isLoading && !error && <Loader />}
 						<Outlet />
 					</Suspense>
 				</MainContainer>

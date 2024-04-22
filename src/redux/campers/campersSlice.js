@@ -3,8 +3,8 @@ import {
 	handleFetchCampersFulfilled,
 	handlePending,
 	handleRejected,
-} from './handlers'
-import { getAllCarsInformation } from './operations'
+} from '../handlers'
+import { getAllCarsInformation } from '../operations'
 
 const initialState = {
 	campers: [],

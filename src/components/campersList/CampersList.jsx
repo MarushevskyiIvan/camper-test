@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { CamperItem } from '../camperItem/CamperItem'
 import { LoadMoreBtn } from '../loadMoreBtn/LoadMoreBtn'
-import { useSelector } from 'react-redux'
 
 import { ItemModal } from '../modal/ItemModal'
 import { useSearchParams } from 'react-router-dom'
-import { selectorCampers } from '../../redux/campers/selectors'
 
 export const CampersList = ({ campers }) => {
 	const [selectedItemId, setSelectedItemId] = useState(null)

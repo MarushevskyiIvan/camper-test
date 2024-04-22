@@ -1,38 +1,40 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 import { CampersList } from '../components/campersList/CampersList'
 import {
 	campersSelector,
-	favoritesSelector,
-	selectError,
-	selectIsLoading,
+	// selectError,
+	// selectIsLoading,
 } from '../redux/campers/selectors'
-import { getAllCarsInformation } from '../redux/campers/operations'
+import { getAllCarsFavorites, getAllCarsInformation } from '../redux/operations'
 import { Loader } from '../components/loader/Loader'
+import { favoritesSelector } from '../redux/favorites/favoritesSelectors'
 
 const FavoritesPage = () => {
-	const isLoading = useSelector(selectIsLoading)
-	const error = useSelector(selectError)
+	const [favorites, setFavorites] = useState([])
+	// const isLoading = useSelector(selectIsLoading)
+	// const error = useSelector(selectError)
 	const dispatch = useDispatch()
 
-	const campers = useSelector(campersSelector)
+	// const campers = useSelector(campersSelector)
 	const favoritesId = useSelector(favoritesSelector)
+	// console.log('favoritesId', favoritesId.favorites)
 
-	const favorites = campers.filter(({ id }) =>
-		favoritesId.favorites.includes(id)
-	)
+	// const favorites = campers.filter(({ id }) =>
+	// 	favoritesId.favorites.includes(id)
+	// )
 
 	useEffect(() => {
-		dispatch(getAllCarsInformation())
+		favoritesId.favorites.map(id => dispatch(getAllCarsFavorites(id)))
 	}, [dispatch])
 
 	return (
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					{isLoading && !error && <Loader />}
+					{/* {isLoading && !error && <Loader />} */}
 					<CamperListFilter />
 				</div>
 			</div>

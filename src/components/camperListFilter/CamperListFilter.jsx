@@ -17,7 +17,7 @@ import sprite from '../../assets/sprite.svg'
 import { useDispatch } from 'react-redux'
 
 import { useSearchParams } from 'react-router-dom'
-import { getAllCarsInformation } from '../../redux/campers/operations'
+import { getAllCarsInformation } from '../../redux/operations'
 
 export const CamperListFilter = () => {
 	const [params, setParams] = useSearchParams()
