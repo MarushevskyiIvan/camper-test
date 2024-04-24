@@ -15,7 +15,8 @@ export const handleFetchCampersFulfilled = (state, action) => {
 	state.campers = action.payload
 }
 
-export const handleFetchCarFulfilled = (state, action) => {
+export const handleFetchFavoritesFulfilled = (state, action) => {
 	handleFulfilled(state)
-	state.car = action.payload
+
+	state.favorites = [...state.favorites, action.payload]
 }

@@ -14,16 +14,16 @@ import {
 	REGISTER,
 } from 'redux-persist'
 
-const favoritePersistConfig = {
-	key: 'favorites',
-	storage,
-	whitelist: ['favorites'],
-}
+// const favoritePersistConfig = {
+// 	key: 'favorites',
+// 	storage,
+// 	whitelist: ['favorites'],
+// }
 
 export const store = configureStore({
 	reducer: {
 		campers: campersReducer,
-		favorites: persistReducer(favoritePersistConfig, favoritesReducer),
+		favorites: favoritesReducer,
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({

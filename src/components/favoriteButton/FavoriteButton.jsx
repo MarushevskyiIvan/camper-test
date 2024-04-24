@@ -13,30 +13,26 @@ const storageKey = 'persist:favorites'
 
 export const FavoriteButton = ({ id }) => {
 	const [favorite, setFavorite] = useState(false)
-	const dispatch = useDispatch()
-
-	const campers = useSelector(campersSelector)
 
 	useEffect(() => {
 		const favoritesStorage = JSON.parse(localStorage.getItem(storageKey))
-		if (favoritesStorage && favoritesStorage.favorites.includes(id)) {
+		if (favoritesStorage && favoritesStorage.includes(id)) {
 			setFavorite(true)
 		}
 	}, [id])
 
 	const favoriteHandler = () => {
 		setFavorite(!favorite)
+		const favoritesStorage = JSON.parse(localStorage.getItem(storageKey)) ?? []
+
 		if (!favorite) {
-			dispatch(addFavorites(id))
-
-			localStorage.setItem(storageKey, JSON.stringify([...campers, id]))
-		} else {
-			dispatch(deleteFavorite(id))
-
 			localStorage.setItem(
 				storageKey,
-				JSON.stringify(campers.filter(itemId => itemId !== id))
+				JSON.stringify([...favoritesStorage, id])
 			)
+		} else {
+			const updatedFavorites = favoritesStorage.filter(favId => favId !== id)
+			localStorage.setItem(storageKey, JSON.stringify(updatedFavorites))
 		}
 	}
 

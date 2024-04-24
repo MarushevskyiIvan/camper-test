@@ -30,12 +30,14 @@ export const getAllCarsInformation = createAsyncThunk(
 )
 
 export const getAllCarsFavorites = createAsyncThunk(
-	'favorites/getAll',
+	'favorites/getFavorites',
 	async (id, thunkAPI) => {
+		// let result = []
 		try {
 			const { data } = await axios.get(`/campers/${id}`)
 
-			console.log('data', data)
+			// result.push(data)
+			// console.log('data', data)
 
 			return data
 		} catch (error) {

@@ -12,24 +12,32 @@ import { getAllCarsFavorites, getAllCarsInformation } from '../redux/operations'
 import { Loader } from '../components/loader/Loader'
 import { favoritesSelector } from '../redux/favorites/favoritesSelectors'
 
+const storageKey = 'persist:favorites'
+
 const FavoritesPage = () => {
-	const [favorites, setFavorites] = useState([])
+	// const [favorites, setFavorites] = useState([])
 	// const isLoading = useSelector(selectIsLoading)
 	// const error = useSelector(selectError)
 	const dispatch = useDispatch()
 
 	// const campers = useSelector(campersSelector)
-	const favoritesId = useSelector(favoritesSelector)
-	// console.log('favoritesId', favoritesId.favorites)
+
+	// console.log('favoritesId', favorites)
 
 	// const favorites = campers.filter(({ id }) =>
 	// 	favoritesId.favorites.includes(id)
 	// )
 
 	useEffect(() => {
-		favoritesId.favorites.map(id => dispatch(getAllCarsFavorites(id)))
+		const favoritesStorage = JSON.parse(localStorage.getItem(storageKey))
+		// console.log('object', favoritesStorage)
+		favoritesStorage.map(id => {
+			dispatch(getAllCarsFavorites(id))
+		})
 	}, [dispatch])
 
+	const { favorites } = useSelector(favoritesSelector)
+	console.log('favorites', favorites)
 	return (
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
@@ -38,7 +46,7 @@ const FavoritesPage = () => {
 					<CamperListFilter />
 				</div>
 			</div>
-			{favorites && favorites.length > 0 ? (
+			{favorites ? (
 				<CampersList campers={favorites} />
 			) : (
 				<p style={{ margin: 'auto' }}> You not have favorites campers</p>
