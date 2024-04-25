@@ -20,3 +20,9 @@ export const handleFetchFavoritesFulfilled = (state, action) => {
 
 	state.favorites = [...state.favorites, action.payload]
 }
+
+export const deleteFavoriteFulfilled = (state, action) => {
+	handleFulfilled(state)
+
+	state.favorites = state.favorites.filter(item => item !== action.payload)
+}

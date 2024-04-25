@@ -8,6 +8,7 @@ import {
 import sprite from '../../assets/sprite.svg'
 import { campersSelector } from '../../redux/campers/selectors'
 import { Button, SvgFavoriteHeart, SvgHeart } from './FavoriteButtonStyled'
+import { getAllCarsFavorites } from '../../redux/operations'
 
 const storageKey = 'persist:favorites'
 
@@ -21,18 +22,24 @@ export const FavoriteButton = ({ id }) => {
 		}
 	}, [id])
 
+	const dispatch = useDispatch()
+
 	const favoriteHandler = () => {
 		setFavorite(!favorite)
-		const favoritesStorage = JSON.parse(localStorage.getItem(storageKey)) ?? []
-
+		// const favoritesStorage = JSON.parse(localStorage.getItem(storageKey)) ?? []
 		if (!favorite) {
-			localStorage.setItem(
-				storageKey,
-				JSON.stringify([...favoritesStorage, id])
-			)
+			// localStorage.setItem(
+			// 	storageKey,
+			// 	JSON.stringify([...favoritesStorage, id])
+			// )
+
+			dispatch(getAllCarsFavorites(id))
+			// dispatch(deleteFavorite(id))
 		} else {
-			const updatedFavorites = favoritesStorage.filter(favId => favId !== id)
-			localStorage.setItem(storageKey, JSON.stringify(updatedFavorites))
+			// const updatedFavorites = favoritesStorage.filter(favId => favId !== id)
+			// localStorage.setItem(storageKey, JSON.stringify(updatedFavorites))
+
+			dispatch(deleteFavorite(id))
 		}
 	}
 

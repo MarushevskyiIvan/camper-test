@@ -32,12 +32,25 @@ export const getAllCarsInformation = createAsyncThunk(
 export const getAllCarsFavorites = createAsyncThunk(
 	'favorites/getFavorites',
 	async (id, thunkAPI) => {
+		console.log('id', id)
+		const sentIds = []
+
+		// console.log('idFilter', idFilter)
 		// let result = []
+
+		if (sentIds.includes(id)) {
+			// Если запрос уже был отправлен, просто возвращаем пустое значение,
+			// поскольку результат запроса уже обрабатывается другими средствами
+			return
+		}
+
 		try {
 			const { data } = await axios.get(`/campers/${id}`)
 
 			// result.push(data)
-			// console.log('data', data)
+
+			sentIds.push(id)
+			console.log('data', data)
 
 			return data
 		} catch (error) {
