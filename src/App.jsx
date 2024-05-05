@@ -3,7 +3,7 @@ import { lazy } from 'react'
 
 import AppLayout from './components/appLayout/AppLayout'
 
-const HomePage = lazy(() => import('./pages/HomePage'))
+const HomePage = lazy(() => import('./pages/Home/HomePage'))
 const CatalogPage = lazy(() => import('./pages/CatalogPage'))
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage'))
 

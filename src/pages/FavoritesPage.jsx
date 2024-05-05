@@ -5,6 +5,8 @@ import { CamperListFilter } from '../components/camperListFilter/CamperListFilte
 import { CampersList } from '../components/campersList/CampersList'
 import {
 	campersSelector,
+	selectError,
+	selectIsLoading,
 	// selectError,
 	// selectIsLoading,
 } from '../redux/campers/selectors'
@@ -15,38 +17,27 @@ import { favoritesSelector } from '../redux/favorites/favoritesSelectors'
 const storageKey = 'persist:favorites'
 
 const FavoritesPage = () => {
-	const [favorites, setFavorites] = useState([])
-	// const isLoading = useSelector(selectIsLoading)
-	// const error = useSelector(selectError)
-	// const dispatch = useDispatch()
-	const favorite = useSelector(favoritesSelector)
-	// const campers = useSelector(campersSelector)
-	console.log('favorites', favorites)
-	// console.log('favoritesId', favorites)
-
-	// const favorites = campers.filter(({ id }) =>
-	// 	favoritesId.favorites.includes(id)
-	// )
+	// const [favorites, setFavorites] = useState([])
+	const isLoading = useSelector(selectIsLoading)
+	const error = useSelector(selectError)
+	const dispatch = useDispatch()
+	const { favorites } = useSelector(favoritesSelector)
 
 	useEffect(() => {
-		setFavorites(favorite.favorites)
-		// const favoritesStorage = JSON.parse(localStorage.getItem(storageKey))
-		// console.log('object', favoritesStorage)
-		// favoritesStorage.map(id => {
-		// 	dispatch(getAllCarsFavorites(id))
-		// })
-		// const uniqueIds = Array.from(new Set(favoritesStorage))
-		// console.log('uniqueIds', uniqueIds)
-		// uniqueIds.forEach(id => dispatch(getAllCarsFavorites(id)))
-	}, [favorite])
+		// setFavorites(favorite.favorites)
 
-	// const { favorites } = useSelector(favoritesSelector)
-	// console.log('favorites', favorites)
+		const favoritesStorage = JSON.parse(localStorage.getItem(storageKey))
+
+		favoritesStorage.map(id => {
+			dispatch(getAllCarsFavorites(id))
+		})
+	}, [dispatch])
+
 	return (
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					{/* {isLoading && !error && <Loader />} */}
+					{isLoading && !error && <Loader />}
 					<CamperListFilter />
 				</div>
 			</div>

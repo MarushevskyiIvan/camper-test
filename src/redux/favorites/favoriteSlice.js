@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getAllCarsFavorites } from '../operations'
 import {
-	deleteFavoriteFulfilled,
 	handleFetchFavoritesFulfilled,
 	handlePending,
 	handleRejected,
@@ -22,7 +21,6 @@ const favoritesSlice = createSlice({
 			state.favorites = state.favorites.filter(
 				({ id }) => id !== action.payload
 			)
-			console.log('state.favorites', state.favorites)
 		},
 	},
 

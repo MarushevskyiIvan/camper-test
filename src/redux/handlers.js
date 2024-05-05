@@ -16,13 +16,9 @@ export const handleFetchCampersFulfilled = (state, action) => {
 }
 
 export const handleFetchFavoritesFulfilled = (state, action) => {
-	handleFulfilled(state)
-
-	state.favorites = [...state.favorites, action.payload]
-}
-
-export const deleteFavoriteFulfilled = (state, action) => {
-	handleFulfilled(state)
-
-	state.favorites = state.favorites.filter(item => item !== action.payload)
+	const existingId = state.favorites.find(item => item.id === action.payload.id)
+	if (existingId) {
+		return
+	}
+	state.favorites.push(action.payload)
 }

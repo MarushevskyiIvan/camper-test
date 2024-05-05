@@ -85,7 +85,6 @@ export const RatingLocationWrap = styled.div`
 	gap: 4px;
 `
 export const DescripText = styled.p`
-	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.5;
 	width: 902px;

@@ -32,7 +32,7 @@ const CatalogPage = () => {
 		<>
 			<div style={{ height: '637px', width: '360px' }}>
 				<div style={{ position: 'fixed' }}>
-					{/* {isLoading && !error && <Loader />} */}
+					{isLoading && !error && <Loader />}
 					<CamperListFilter />
 				</div>
 			</div>
