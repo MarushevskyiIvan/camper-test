@@ -1,23 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import { CamperListFilter } from '../components/camperListFilter/CamperListFilter'
 import { CampersList } from '../components/campersList/CampersList'
-import {
-	campersSelector,
-	selectError,
-	selectIsLoading,
-	// selectError,
-	// selectIsLoading,
-} from '../redux/campers/selectors'
-import { getAllCarsFavorites, getAllCarsInformation } from '../redux/operations'
+import { selectError, selectIsLoading } from '../redux/campers/selectors'
+import { getAllCarsFavorites } from '../redux/operations'
 import { Loader } from '../components/loader/Loader'
 import { favoritesSelector } from '../redux/favorites/favoritesSelectors'
+import { useSearchParams } from 'react-router-dom'
 
 const storageKey = 'persist:favorites'
 
 const FavoritesPage = () => {
 	// const [favorites, setFavorites] = useState([])
+	const currentParams = new URLSearchParams(window.location.search)
+
+	// const params = useSearchParams()
+	// console.log('params', currentParams.get())
+	const [params, setParams] = useSearchParams()
+	const kitchen = params.get('kitchen') ?? ''
+	console.log('kitchen', kitchen)
+
 	const isLoading = useSelector(selectIsLoading)
 	const error = useSelector(selectError)
 	const dispatch = useDispatch()
