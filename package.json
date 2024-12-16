@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://marushevskyiivan.github.io/camper-test",
+	"homepage": "https://Marushevskyiivan.github.io/camper-test",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
