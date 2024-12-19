@@ -1,4 +1,4 @@
-import{u as t,j as e}from"./index-DmwByvzP.js";const i="/camper-test/assets/boxstar-600-lifetime-2-be-knaus-van-modello-2018-min-bQkA33of.jpg",r="/camper-test/assets/Miniven-na-beregu-reki-min-B5dgr-Ok.jpg",s="/camper-test/assets/Screenshot_1-B_-gu1L8.png",c=t.div`
+import{u as t,j as e}from"./index-CN1LkJv1.js";const i="/camper-test/assets/boxstar-600-lifetime-2-be-knaus-van-modello-2018-min-bQkA33of.jpg",r="/camper-test/assets/Miniven-na-beregu-reki-min-B5dgr-Ok.jpg",s="/camper-test/assets/Screenshot_1-B_-gu1L8.png",c=t.div`
 	background-image: linear-gradient(
 			rgba(46, 47, 66, 0.7),
 			rgba(46, 47, 66, 0.7)
