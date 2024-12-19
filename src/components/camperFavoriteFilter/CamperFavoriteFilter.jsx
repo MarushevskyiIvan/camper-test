@@ -31,7 +31,7 @@ export const CamperListFilter = () => {
 	const dispatch = useDispatch()
 
 	const handleChange = event => {
-		const { name, value, type, checked } = event.target
+		// const { name, value, type, checked } = event.target
 		const newValue = type === 'checkbox' ? checked : value
 
 		setFormData(prevFormData => ({
@@ -43,7 +43,7 @@ export const CamperListFilter = () => {
 	// const handleRadioChange = event => {
 	// 	setFormData(prevFormData => ({
 	// 		...prevFormData,
-	// 		Form: event.target.value,
+	// 		Form: event..value,
 	// 	}))
 	// }
 
